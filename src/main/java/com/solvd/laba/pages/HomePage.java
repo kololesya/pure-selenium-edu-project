@@ -10,6 +10,7 @@ public class HomePage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
+    @Override
     public boolean isOpened() {
         String activeTab = header().getActiveTabText();
         return activeTab.equalsIgnoreCase("Home");

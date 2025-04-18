@@ -6,6 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import com.solvd.laba.config.Config;
+import com.solvd.laba.config.TestDataConfig;
+import com.solvd.laba.pages.LoginPage;
+import com.solvd.laba.utils.WebDriverFactory;
 import com.solvd.laba.pages.HomePage;
 
 public abstract class BaseTest {
@@ -13,6 +17,11 @@ public abstract class BaseTest {
     protected Config config;
     protected HomePage homePage;
     protected final Logger logger = LogManager.getLogger(getClass());
+
+    protected TestDataConfig testData = new TestDataConfig();
+
+    protected String email = testData.getProperty("email");
+    protected String password = testData.getProperty("password");
 
     @BeforeClass
     public void setUp() {
@@ -26,5 +35,15 @@ public abstract class BaseTest {
     public void tearDown() {
         logger.info("🧹 Closing the browser session");
         WebDriverFactory.quitDriver();
+    }
+
+    public void openHomePage() {
+        String url = config.getProperty("url");
+        homePage.open(url);
+    }
+
+    public void loginOnSite(){
+        LoginPage loginPage = homePage.header().clickSignupLogin();
+        loginPage.loginOnSite(email, password);
     }
 }

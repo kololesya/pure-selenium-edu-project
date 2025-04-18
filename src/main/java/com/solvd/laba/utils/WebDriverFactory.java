@@ -1,5 +1,6 @@
-package com.solvd.laba;
+package com.solvd.laba.utils;
 
+import com.solvd.laba.config.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 

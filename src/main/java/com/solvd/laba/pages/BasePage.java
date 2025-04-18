@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.solvd.laba.components.HeaderComponent;
 
-public class BasePage {
+public abstract class BasePage {
     protected WebDriver driver;
 
     public BasePage(WebDriver driver) {
@@ -15,9 +15,7 @@ public class BasePage {
         driver.get(url);
     }
 
-    public String getCurrentUrl() {
-        return driver.getCurrentUrl();
-    }
+    public abstract boolean isOpened();
 
     public HeaderComponent header() {
         return new HeaderComponent(driver);

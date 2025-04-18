@@ -7,16 +7,46 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage{
 
-    @FindBy(css = "h2.title.text-center")
-    private WebElement loginTitle;
+    @FindBy(name = "name")
+    private WebElement nameInput;
+
+    @FindBy(xpath = "//input[@data-qa='signup-email']")
+    private WebElement signupEmail;
+
+    @FindBy(xpath = "//input[@data-qa='login-email']")
+    private WebElement loginEmail;
+
+    @FindBy(xpath = "//input[@data-qa='login-password']")
+    private WebElement password;
+
+    @FindBy(xpath = "//button[@data-qa='signup-button']")
+    private WebElement signupButton;
+
+    @FindBy(xpath = "//button[@data-qa='login-button']")
+    private WebElement loginButton;
 
     public LoginPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public boolean isPageOpened() {
-        return loginTitle.isDisplayed() &&
-                loginTitle.getText().contains("Login to your account");
+    @Override
+    public boolean isOpened() {
+        String activeTab = header().getActiveTabText();
+        return activeTab.trim().equalsIgnoreCase("Signup / Login");
+    }
+
+    public SignupPage signUp(String name, String email) {
+        nameInput.sendKeys(name);
+        signupEmail.sendKeys(email);
+        signupButton.click();
+        return new SignupPage(driver);
+    }
+
+    public HomePage loginOnSite(String email, String password) {
+        loginEmail.sendKeys(email);
+        this.password.sendKeys(password);
+        loginButton.click();
+        return new HomePage(driver);
     }
 }
