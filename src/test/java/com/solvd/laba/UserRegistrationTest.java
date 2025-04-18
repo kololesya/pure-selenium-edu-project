@@ -11,10 +11,9 @@ import com.solvd.laba.utils.UserFactory;
 public class UserRegistrationTest extends BaseTest {
 
     @Test
-    public void testUserCanStartRegistration() {
+    public void testUserRegistration() {
         Map<String, String> userData = UserFactory.createUserData();
 
-        logger.info("🌐 Step 1: Opening Home Page");
         openHomePage();
 
         logger.info("➡️ Step 2: Navigating Login Page");
@@ -58,5 +57,21 @@ public class UserRegistrationTest extends BaseTest {
         logger.info("🏁 Step 7: Returning to the Home Page");
         homePage = accountCreatedPage.clickContinue();
         Assert.assertTrue(homePage.isOpened(), "Home page should be visible after registration");
+    }
+
+    @Test
+    public void testUserRegistrationWithIncorrectEmail() {
+
+        openHomePage();
+
+        logger.info("➡️ Step 1: Navigating Login Page");
+        LoginPage loginPage = homePage.header().clickSignupLogin();
+        Assert.assertTrue(loginPage.isOpened(), "Login page should be opened");
+
+        logger.info("📝 Step 2: Entering name and email for registration");
+        loginPage.signUp("name", email);
+
+        Assert.assertTrue(loginPage.isSignupErrorVisible(),
+                "The message 'Email Address already exist!' is visible");
     }
 }

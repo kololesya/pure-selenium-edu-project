@@ -25,6 +25,13 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//button[@data-qa='login-button']")
     private WebElement loginButton;
 
+    @FindBy(xpath = "//p[contains(text(),'Your email or password is incorrect!')]")
+    private WebElement loginErrorMessage;
+
+    @FindBy(xpath = "//p[contains(text(),'Email Address already exist!')]")
+    private WebElement signupErrorMessage;
+
+
     public LoginPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -48,5 +55,13 @@ public class LoginPage extends BasePage{
         this.password.sendKeys(password);
         loginButton.click();
         return new HomePage(driver);
+    }
+
+    public boolean isLoginErrorVisible() {
+        return loginErrorMessage.isDisplayed();
+    }
+
+    public boolean isSignupErrorVisible() {
+        return signupErrorMessage.isDisplayed();
     }
 }

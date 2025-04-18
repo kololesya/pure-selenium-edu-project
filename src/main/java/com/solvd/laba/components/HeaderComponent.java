@@ -12,13 +12,13 @@ public class HeaderComponent {
     private WebDriver driver;
 
     @FindBy(css = "a[href='/login']")
-    private WebElement signupLoginBtn;
+    private WebElement signupLoginButton;
 
     @FindBy(css = "a[href='/logout']")
-    private WebElement logoutBtn;
+    private WebElement logoutButton;
 
     @FindBy(css = "a[href='/']")
-    private WebElement homeBtn;
+    private WebElement homeButton;
 
     @FindBy(xpath = "//a[contains(text(),'Logged in as')]")
     private WebElement loggedInText;
@@ -32,17 +32,17 @@ public class HeaderComponent {
     }
 
     public HomePage clickHome() {
-        homeBtn.click();
+        homeButton.click();
         return new HomePage(driver);
     }
 
     public LoginPage clickSignupLogin() {
-        signupLoginBtn.click();
+        signupLoginButton.click();
         return new LoginPage(driver);
     }
 
     public LoginPage clickLogout() {
-        logoutBtn.click();
+        logoutButton.click();
         return new LoginPage(driver);
     }
 
