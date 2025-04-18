@@ -1,9 +1,9 @@
 package com.solvd.laba;
 
-import com.solvd.laba.pages.LoginPage;
-import org.openqa.selenium.bidi.log.Log;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.solvd.laba.pages.LoginPage;
 
 public class LogoutTest extends BaseTest{
 

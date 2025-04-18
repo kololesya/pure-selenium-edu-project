@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.pages.LoginPage;
+import com.solvd.laba.pages.ContactUsPage;
 
 public class HeaderComponent {
     private WebDriver driver;
@@ -16,6 +17,9 @@ public class HeaderComponent {
 
     @FindBy(css = "a[href='/logout']")
     private WebElement logoutButton;
+
+    @FindBy(css = "a[href='/contact_us']")
+    private WebElement contactUsButton;
 
     @FindBy(css = "a[href='/']")
     private WebElement homeButton;
@@ -49,6 +53,12 @@ public class HeaderComponent {
     public boolean isUserLoggedIn(String username) {
         return loggedInText.isDisplayed() && loggedInText.getText().contains(username);
     }
+
+    public ContactUsPage clickContactUs(){
+        contactUsButton.click();
+        return new ContactUsPage(driver);
+    }
+
 
     public String getActiveTabText() {
         return activeTab.getText().trim();

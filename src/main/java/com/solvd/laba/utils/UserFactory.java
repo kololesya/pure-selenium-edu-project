@@ -1,5 +1,6 @@
 package com.solvd.laba.utils;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,7 +8,6 @@ import com.solvd.laba.config.TestDataConfig;
 
 public class UserFactory {
     private static final TestDataConfig testData = new TestDataConfig();
-    private static Map<String, String> lastCreatedUser;
 
     public static Map<String, String> createUserData() {
         Map<String, String> user = new HashMap<>();
@@ -27,12 +27,25 @@ public class UserFactory {
         user.put("zipcode", testData.getProperty("zipcode"));
         user.put("mobile", testData.getProperty("mobile"));
 
-        lastCreatedUser = user;
         return user;
     }
 
-    public static Map<String, String> getLastCreatedUser() {
-        return lastCreatedUser;
+    public static Map<String, String> createContactFormData() {
+        Map<String, String> contactData = new HashMap<>();
+        contactData.put("name", testData.getProperty("name"));
+        contactData.put("email", testData.getProperty("email"));
+
+        contactData.put("contact_subject", testData.getProperty("contact_subject"));
+        contactData.put("contact_message", testData.getProperty("contact_message"));
+        contactData.put("contact_file_path", getTestFilePath());
+
+        return contactData;
+    }
+
+    private static String getTestFilePath() {
+        String fileName = testData.getProperty("contact_file_path");
+        File file = new File("src/test/resources/" + fileName);
+        return file.getAbsolutePath();
     }
 
     private static String generateUniqueEmail() {
