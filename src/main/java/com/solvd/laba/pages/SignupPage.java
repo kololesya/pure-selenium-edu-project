@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.solvd.laba.config.TestDataConfig;
 
-public class SignupPage extends BasePage {
+public class SignupPage extends AbstractPage {
 
     @FindBy(xpath = "//b[text()='Enter Account Information']")
     private WebElement enterAccountInfoTitle;
@@ -76,40 +76,36 @@ public class SignupPage extends BasePage {
 
     @Override
     public boolean isOpened() {
-        return enterAccountInfoTitle.isDisplayed();
+        return isElementDisplayed(enterAccountInfoTitle);
     }
 
     public void fillAccountInfo(String password, String day, String month, String year) {
-        mrTitleRadio.click();
-        passwordField.sendKeys(password);
+        click(mrTitleRadio);
+        sendKeysTo(passwordField, password);
         new Select(daysDropdown).selectByValue(day);
         new Select(monthsDropdown).selectByVisibleText(month);
         new Select(yearsDropdown).selectByValue(year);
-        newsletterCheckbox.click();
-        offersCheckbox.click();
+        click(newsletterCheckbox);
+        click(offersCheckbox);
     }
 
     public void fillAddressInfo(String firstName, String lastName, String company,
                                 String address1, String address2, String country,
                                 String state, String city, String zip, String mobile) {
-        firstNameField.sendKeys(firstName);
-        lastNameFiled.sendKeys(lastName);
-        companyField.sendKeys(company);
-        address1Field.sendKeys(address1);
-        address2Field.sendKeys(address2);
+        sendKeysTo(firstNameField, firstName);
+        sendKeysTo(lastNameFiled, lastName);
+        sendKeysTo(companyField, company);
+        sendKeysTo(address1Field, address1);
+        sendKeysTo(address2Field, address2);
         new Select(countryDropdown).selectByVisibleText(country);
-        stateField.sendKeys(state);
-        cityField.sendKeys(city);
-        zipcodeField.sendKeys(zip);
-        mobileNumberField.sendKeys(mobile);
+        sendKeysTo(stateField, state);
+        sendKeysTo(cityField, city);
+        sendKeysTo(zipcodeField, zip);
+        sendKeysTo(mobileNumberField, mobile);
     }
 
     public AccountCreatedPage clickCreateAccount() {
-        createAccountButton.click();
+        click(createAccountButton);
         return new AccountCreatedPage(driver);
-    }
-
-    public static String generateUniqueEmail() {
-        return "test" + System.currentTimeMillis() + "@gmail.com";
     }
 }

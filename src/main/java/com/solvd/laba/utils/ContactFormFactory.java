@@ -9,10 +9,10 @@ public class ContactFormFactory {
 
     private static final TestDataConfig testData = new TestDataConfig();
 
-    public static ContactForm buildContactForm() {
+    public static ContactForm buildContactForm() throws Exception {
         return new ContactForm.ContactFormBuilder()
                 .setName(testData.getProperty("name"))
-                .setEmail(testData.getProperty("email"))
+                .setEmail(EncryptionUtils.decrypt(testData.getProperty("email_encrypted")))
                 .setSubject(testData.getProperty("contact_subject"))
                 .setMessage(testData.getProperty("contact_message"))
                 .setFilePath(getFilePath())
@@ -20,8 +20,8 @@ public class ContactFormFactory {
     }
 
     private static String getFilePath() {
-        String fileName = testData.getProperty("contact_file_path");
-        File file = new File("src/test/resources/" + fileName);
+        String relativePath = testData.getProperty("file_path");
+        File file = new File(relativePath);
         return file.getAbsolutePath();
     }
 }

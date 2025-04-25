@@ -10,7 +10,7 @@ import com.solvd.laba.utils.ContactFormFactory;
 public class ContactUsTest extends BaseTest {
 
     @Test
-    public void testContactWithUs() {
+    public void testContactWithUs() throws Exception {
         logger.info("Step 1: Open Home Page");
         openHomePage();
         logger.info("Step 2: Navigate to Contact Us Page");

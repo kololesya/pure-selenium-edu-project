@@ -9,19 +9,19 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.solvd.laba.models.ContactForm;
 
-public class ContactUsPage extends BasePage {
+public class ContactUsPage extends AbstractPage {
 
     @FindBy(name = "name")
-    private WebElement nameInput;
+    private WebElement nameField;
 
     @FindBy(name = "email")
-    private WebElement emailInput;
+    private WebElement emailField;
 
     @FindBy(name = "subject")
-    private WebElement subjectInput;
+    private WebElement subjectField;
 
     @FindBy(id = "message")
-    private WebElement messageInput;
+    private WebElement messageField;
 
     @FindBy(name = "upload_file")
     private WebElement uploadFile;
@@ -42,34 +42,40 @@ public class ContactUsPage extends BasePage {
 
     @Override
     public boolean isOpened() {
+        logger.info("Checking if Contact Us page is opened");
         return header().getActiveTabText().equalsIgnoreCase("Contact us");
     }
 
     public void fillContactForm(ContactForm form) {
+        logger.info("Filling Contact Us form");
+
         File file = new File(form.getFilePath());
         if (!file.exists()) {
             throw new RuntimeException("Upload file not found at path: " + form.getFilePath());
         }
 
-        nameInput.sendKeys(form.getName());
-        emailInput.sendKeys(form.getEmail());
-        subjectInput.sendKeys(form.getSubject());
-        messageInput.sendKeys(form.getMessage());
-        uploadFile.sendKeys(form.getFilePath());
+        sendKeysTo(nameField, form.getName());
+        sendKeysTo(emailField, form.getEmail());
+        sendKeysTo(subjectField, form.getSubject());
+        sendKeysTo(messageField, form.getMessage());
+        sendKeysTo(uploadFile, form.getFilePath());
     }
 
-
     public void submitForm() {
-        submitButton.click();
+        logger.info("Submitting contact form");
+        click(submitButton);
         driver.switchTo().alert().accept();
+        logger.info("Alert accepted after form submission");
     }
 
     public boolean isSuccessMessageDisplayed() {
-        return successMessage.isDisplayed();
+        logger.info("Checking if success message is displayed");
+        return isElementDisplayed(successMessage);
     }
 
     public HomePage clickHomeButton() {
-        homeButtonFromContactPage.click();
+        logger.info("Clicking on 'Home' button from Contact Us page");
+        click(homeButtonFromContactPage);
         return new HomePage(driver);
     }
 }

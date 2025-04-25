@@ -1,7 +1,5 @@
 package com.solvd.laba.utils;
 
-import java.io.File;
-
 import com.solvd.laba.config.TestDataConfig;
 import com.solvd.laba.models.User;
 
@@ -9,11 +7,11 @@ public class UserFactory {
 
     private static final TestDataConfig testData = new TestDataConfig();
 
-    public static User buildUserForRegistration() {
+    public static User buildUserForRegistration() throws Exception {
         return new User.UserBuilder()
                 .setName(testData.getProperty("name"))
                 .setEmail(generateUniqueEmail())
-                .setPassword(testData.getProperty("password"))
+                .setPassword(EncryptionUtils.decrypt(testData.getProperty("password_encrypted")))
                 .setBirthDay(testData.getProperty("birth_day"))
                 .setBirthMonth(testData.getProperty("birth_month"))
                 .setBirthYear(testData.getProperty("birth_year"))

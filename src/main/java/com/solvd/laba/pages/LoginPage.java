@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends AbstractPage {
 
     @FindBy(name = "name")
     private WebElement nameField;
@@ -31,6 +31,8 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//p[contains(text(),'Email Address already exist!')]")
     private WebElement signupErrorMessage;
 
+    @FindBy(xpath = "//h2[contains(text(),'Login to your account')]")
+    private WebElement loginTitle;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -39,29 +41,29 @@ public class LoginPage extends BasePage {
 
     @Override
     public boolean isOpened() {
-        String activeTab = header().getActiveTabText();
-        return activeTab.trim().equalsIgnoreCase("Signup / Login");
+        return isElementDisplayed(loginTitle);
     }
 
+
     public SignupPage signUp(String name, String email) {
-        nameField.sendKeys(name);
-        signupEmailField.sendKeys(email);
-        signupButton.click();
+        sendKeysTo(nameField, name);
+        sendKeysTo(signupEmailField, email);
+        click(signupButton);
         return new SignupPage(driver);
     }
 
     public HomePage loginOnSite(String email, String password) {
-        loginEmailField.sendKeys(email);
-        passwordField.sendKeys(password);
-        loginButton.click();
+        sendKeysTo(loginEmailField, email);
+        sendKeysTo(passwordField, password);
+        click(loginButton);
         return new HomePage(driver);
     }
 
     public boolean isLoginErrorVisible() {
-        return loginErrorMessage.isDisplayed();
+        return isElementDisplayed(loginErrorMessage);
     }
 
     public boolean isSignupErrorVisible() {
-        return signupErrorMessage.isDisplayed();
+        return isElementDisplayed(signupErrorMessage);
     }
 }

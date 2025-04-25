@@ -8,11 +8,9 @@ import com.solvd.laba.utils.UserFactory;
 import com.solvd.laba.models.User;
 
 public class UserRegistrationTest extends BaseTest {
-    private User signUpUser = UserFactory.buildUserForRegistration();
-
-
     @Test
     public void testUserRegistration() throws Exception {
+        User signUpUser = UserFactory.buildUserForRegistration();
         logger.info("Step 1: Open Home Page");
         openHomePage();
         logger.info("Step 2: Go to Login Page");

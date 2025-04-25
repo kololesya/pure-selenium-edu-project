@@ -23,7 +23,7 @@ public class LoginUserTest extends BaseTest {
     }
 
     @Test
-    public void testLoginWithIncorrectUserCredentials(){
+    public void testLoginWithIncorrectUserCredentials() throws Exception {
         User wrongCredentials = UserFactory.buildUserForRegistration();
         openHomePage();
         logger.info("Open Login Page");

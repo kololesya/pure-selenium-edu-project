@@ -5,7 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AccountCreatedPage extends BasePage {
+public class AccountCreatedPage extends AbstractPage {
+
     @FindBy(xpath = "//h2[@data-qa='account-created']")
     private WebElement accountCreatedMessage;
 
@@ -19,12 +20,14 @@ public class AccountCreatedPage extends BasePage {
 
     @Override
     public boolean isOpened() {
-        return accountCreatedMessage.isDisplayed()
+        logger.info("Checking if 'Account Created' page is opened");
+        return isElementDisplayed(accountCreatedMessage)
                 && accountCreatedMessage.getText().equalsIgnoreCase("Account Created!");
     }
 
     public HomePage clickContinue() {
-        continueButton.click();
+        logger.info("Clicking on 'Continue' button");
+        click(continueButton);
         return new HomePage(driver);
     }
 }
