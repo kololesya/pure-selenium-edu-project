@@ -6,10 +6,10 @@ import com.solvd.laba.utils.UserFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginUserTest extends BaseTest{
+public class LoginUserTest extends BaseTest {
 
     @Test
-    public void testLoginWithCorrectUserCredentials(){
+    public void testLoginWithCorrectUserCredentials() throws Exception {
         User loginUser = UserFactory.buildUserForLogin();
         openHomePage();
         logger.info("Open Login Page");
@@ -17,7 +17,7 @@ public class LoginUserTest extends BaseTest{
         Assert.assertTrue(loginPage.isOpened(), "Login page should be opened");
         logger.info("Login with credentials from testdata.properties");
         loginPage.loginOnSite(loginUser.getEmail(), loginUser.getPassword());
-        logger.info("✅ Verify login was successful");
+        logger.info("Verify login was successful");
         Assert.assertTrue(loginPage.header().isUserLoggedIn(loginUser.getName()));
         Assert.assertTrue(homePage.isOpened(), "Home page should be opened after login");
     }

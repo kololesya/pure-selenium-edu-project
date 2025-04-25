@@ -40,7 +40,7 @@ public abstract class BaseTest {
         homePage.open(url);
     }
 
-    public HomePage loginOnSite() {
+    public HomePage loginOnSite() throws Exception {
         openHomePage();
         User loginUser = UserFactory.buildUserForLogin();
         LoginPage loginPage = homePage.header().clickSignupLoginButton();

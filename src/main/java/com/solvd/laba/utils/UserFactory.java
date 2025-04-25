@@ -29,27 +29,12 @@ public class UserFactory {
                 .build();
     }
 
-    public static User buildUserForLogin() {
+    public static User buildUserForLogin() throws Exception {
         return new User.UserBuilder()
                 .setName(testData.getProperty("name"))
-                .setEmail(testData.getProperty("email"))
-                .setPassword(testData.getProperty("password"))
+                .setEmail(EncryptionUtils.decrypt(testData.getProperty("email_encrypted")))
+                .setPassword(EncryptionUtils.decrypt(testData.getProperty("password_encrypted")))
                 .build();
-    }
-
-
-    public static String getMessageSubject() {
-        return testData.getProperty("contact_subject");
-    }
-
-    public static String getMessage() {
-        return testData.getProperty("contact_message");
-    }
-
-    public static String getFilePath() {
-        String fileName = testData.getProperty("contact_file_path");
-        File file = new File("src/test/resources/" + fileName);
-        return file.getAbsolutePath();
     }
 
     private static String generateUniqueEmail() {

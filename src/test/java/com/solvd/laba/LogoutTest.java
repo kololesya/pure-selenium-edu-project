@@ -9,7 +9,7 @@ import com.solvd.laba.pages.LoginPage;
 public class LogoutTest extends BaseTest{
 
     @Test
-    public void testLogout(){
+    public void testLogout() throws Exception {
         logger.info("Step 1: Logging in");
         HomePage homePage = loginOnSite();
         Assert.assertTrue(homePage.isOpened());

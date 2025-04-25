@@ -9,9 +9,10 @@ import com.solvd.laba.models.User;
 
 public class UserRegistrationTest extends BaseTest {
     private User signUpUser = UserFactory.buildUserForRegistration();
-    private User loginUser = UserFactory.buildUserForLogin();
+
+
     @Test
-    public void testUserRegistration() {
+    public void testUserRegistration() throws Exception {
         logger.info("Step 1: Open Home Page");
         openHomePage();
         logger.info("Step 2: Go to Login Page");
@@ -44,7 +45,8 @@ public class UserRegistrationTest extends BaseTest {
     }
 
     @Test
-    public void testUserRegistrationWithAlreadyExistEmail() {
+    public void testUserRegistrationWithAlreadyExistEmail() throws Exception {
+        User loginUser = UserFactory.buildUserForLogin();
         openHomePage();
         logger.info("Step 1: Navigating Login Page");
         LoginPage loginPage = homePage.header().clickSignupLoginButton();
