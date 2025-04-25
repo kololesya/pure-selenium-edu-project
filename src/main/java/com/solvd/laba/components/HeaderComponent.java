@@ -40,7 +40,7 @@ public class HeaderComponent {
         return new HomePage(driver);
     }
 
-    public LoginPage clickSignupLogin() {
+    public LoginPage clickSignupLoginButton() {
         signupLoginButton.click();
         return new LoginPage(driver);
     }

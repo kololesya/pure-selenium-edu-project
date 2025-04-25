@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AccountCreatedPage extends BasePage{
+public class AccountCreatedPage extends BasePage {
     @FindBy(xpath = "//h2[@data-qa='account-created']")
     private WebElement accountCreatedMessage;
 

@@ -1,13 +1,14 @@
 package com.solvd.laba.pages;
 
-import com.solvd.laba.config.TestDataConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class SignupPage extends BasePage{
+import com.solvd.laba.config.TestDataConfig;
+
+public class SignupPage extends BasePage {
 
     @FindBy(xpath = "//b[text()='Enter Account Information']")
     private WebElement enterAccountInfoTitle;
@@ -16,7 +17,7 @@ public class SignupPage extends BasePage{
     private WebElement mrTitleRadio;
 
     @FindBy(id = "password")
-    private WebElement passwordInput;
+    private WebElement passwordField;
 
     @FindBy(id = "days")
     private WebElement daysDropdown;
@@ -34,34 +35,34 @@ public class SignupPage extends BasePage{
     private WebElement offersCheckbox;
 
     @FindBy(id = "first_name")
-    private WebElement firstNameInput;
+    private WebElement firstNameField;
 
     @FindBy(id = "last_name")
-    private WebElement lastNameInput;
+    private WebElement lastNameFiled;
 
     @FindBy(id = "company")
-    private WebElement companyInput;
+    private WebElement companyField;
 
     @FindBy(id = "address1")
-    private WebElement address1Input;
+    private WebElement address1Field;
 
     @FindBy(id = "address2")
-    private WebElement address2Input;
+    private WebElement address2Field;
 
     @FindBy(id = "country")
     private WebElement countryDropdown;
 
     @FindBy(id = "state")
-    private WebElement stateInput;
+    private WebElement stateField;
 
     @FindBy(id = "city")
-    private WebElement cityInput;
+    private WebElement cityField;
 
     @FindBy(id = "zipcode")
-    private WebElement zipcodeInput;
+    private WebElement zipcodeField;
 
     @FindBy(id = "mobile_number")
-    private WebElement mobileNumberInput;
+    private WebElement mobileNumberField;
 
     @FindBy(xpath = "//button[@data-qa='create-account']")
     private WebElement createAccountButton;
@@ -80,7 +81,7 @@ public class SignupPage extends BasePage{
 
     public void fillAccountInfo(String password, String day, String month, String year) {
         mrTitleRadio.click();
-        passwordInput.sendKeys(password);
+        passwordField.sendKeys(password);
         new Select(daysDropdown).selectByValue(day);
         new Select(monthsDropdown).selectByVisibleText(month);
         new Select(yearsDropdown).selectByValue(year);
@@ -91,16 +92,16 @@ public class SignupPage extends BasePage{
     public void fillAddressInfo(String firstName, String lastName, String company,
                                 String address1, String address2, String country,
                                 String state, String city, String zip, String mobile) {
-        firstNameInput.sendKeys(firstName);
-        lastNameInput.sendKeys(lastName);
-        companyInput.sendKeys(company);
-        address1Input.sendKeys(address1);
-        address2Input.sendKeys(address2);
+        firstNameField.sendKeys(firstName);
+        lastNameFiled.sendKeys(lastName);
+        companyField.sendKeys(company);
+        address1Field.sendKeys(address1);
+        address2Field.sendKeys(address2);
         new Select(countryDropdown).selectByVisibleText(country);
-        stateInput.sendKeys(state);
-        cityInput.sendKeys(city);
-        zipcodeInput.sendKeys(zip);
-        mobileNumberInput.sendKeys(mobile);
+        stateField.sendKeys(state);
+        cityField.sendKeys(city);
+        zipcodeField.sendKeys(zip);
+        mobileNumberField.sendKeys(mobile);
     }
 
     public AccountCreatedPage clickCreateAccount() {

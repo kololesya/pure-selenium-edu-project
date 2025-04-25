@@ -7,33 +7,31 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import com.solvd.laba.config.Config;
-import com.solvd.laba.config.TestDataConfig;
-import com.solvd.laba.pages.LoginPage;
-import com.solvd.laba.utils.WebDriverFactory;
 import com.solvd.laba.pages.HomePage;
+import com.solvd.laba.pages.LoginPage;
+import com.solvd.laba.utils.UserFactory;
+import com.solvd.laba.utils.WebDriverFactory;
+import com.solvd.laba.models.User;
 
 public abstract class BaseTest {
-    protected WebDriver driver;
-    protected Config config;
+
+    private WebDriver driver;
+    private Config config;
     protected HomePage homePage;
+
     protected final Logger logger = LogManager.getLogger(getClass());
-
-    protected TestDataConfig testData = new TestDataConfig();
-
-    protected String email = testData.getProperty("email");
-    protected String password = testData.getProperty("password");
 
     @BeforeClass
     public void setUp() {
-        logger.info("🔧 Launching the browser and initializing data");
+        logger.info("Launching the browser and initializing data");
         driver = WebDriverFactory.getDriver();
         config = new Config();
         homePage = new HomePage(driver);
     }
 
     @AfterClass
-    public void tearDown() {
-        logger.info("🧹 Closing the browser session");
+    public void closeBrowserSession() {
+        logger.info("Closing the browser session");
         WebDriverFactory.quitDriver();
     }
 
@@ -42,8 +40,15 @@ public abstract class BaseTest {
         homePage.open(url);
     }
 
-    public void loginOnSite(){
-        LoginPage loginPage = homePage.header().clickSignupLogin();
-        loginPage.loginOnSite(email, password);
+    public HomePage loginOnSite() {
+        openHomePage();
+        User loginUser = UserFactory.buildUserForLogin();
+        LoginPage loginPage = homePage.header().clickSignupLoginButton();
+        loginPage.loginOnSite(loginUser.getEmail(), loginUser.getPassword());
+        return new HomePage(driver);
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 }

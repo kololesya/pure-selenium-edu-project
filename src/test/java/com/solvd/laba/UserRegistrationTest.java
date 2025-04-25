@@ -1,76 +1,56 @@
 package com.solvd.laba;
 
-import java.util.Map;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.solvd.laba.pages.*;
 import com.solvd.laba.utils.UserFactory;
+import com.solvd.laba.models.User;
 
 public class UserRegistrationTest extends BaseTest {
-
+    private User signUpUser = UserFactory.buildUserForRegistration();
+    private User loginUser = UserFactory.buildUserForLogin();
     @Test
     public void testUserRegistration() {
-        Map<String, String> userData = UserFactory.createUserData();
-
+        logger.info("Step 1: Open Home Page");
         openHomePage();
-
-        logger.info("➡️ Step 2: Navigating Login Page");
-        LoginPage loginPage = homePage.header().clickSignupLogin();
+        logger.info("Step 2: Go to Login Page");
+        LoginPage loginPage = homePage.header().clickSignupLoginButton();
         Assert.assertTrue(loginPage.isOpened(), "Login page should be opened");
-
-        logger.info("📝 Step 3: Entering name and email for registration");
-        loginPage.signUp(userData.get("name"), userData.get("email"));
-
-        SignupPage signupPage = new SignupPage(driver);
+        logger.info("Step 3: Enter user name and email");
+        SignupPage signupPage = loginPage.signUp(signUpUser.getName(), signUpUser.getEmail());
         Assert.assertTrue(signupPage.isOpened(), "Signup page should be opened");
-
-        logger.info("🧾 Step 4: Filling in account information");
-        signupPage.fillAccountInfo(
-                userData.get("password"),
-                userData.get("birth_day"),
-                userData.get("birth_month"),
-                userData.get("birth_year")
-        );
-
-        logger.info("🏠 Step 5: Filling in address and contact information");
+        logger.info("Step 4: Fill in account information");
+        signupPage.fillAccountInfo(signUpUser.getPassword(), signUpUser.getBirthDay(), signUpUser.getBirthMonth(), signUpUser.getBirthYear());
+        logger.info("Step 5: Fill in address information");
         signupPage.fillAddressInfo(
-                userData.get("name"),
-                userData.get("last_name"),
-                userData.get("company"),
-                userData.get("address1"),
-                userData.get("address2"),
-                userData.get("country"),
-                userData.get("state"),
-                userData.get("city"),
-                userData.get("zipcode"),
-                userData.get("mobile")
+                signUpUser.getName(),
+                signUpUser.getLastName(),
+                signUpUser.getCompany(),
+                signUpUser.getAddress1(),
+                signUpUser.getAddress2(),
+                signUpUser.getCountry(),
+                signUpUser.getState(),
+                signUpUser.getCity(),
+                signUpUser.getZipcode(),
+                signUpUser.getMobile()
         );
-
-        signupPage.clickCreateAccount();
-
-        logger.info("✅ Step 6: Verifying that the account was successfully created");
-        AccountCreatedPage accountCreatedPage = new AccountCreatedPage(driver);
-        Assert.assertTrue(accountCreatedPage.isOpened(), "'ACCOUNT CREATED!' should be visible");
-
-        logger.info("🏁 Step 7: Returning to the Home Page");
+        logger.info("Step 6: Click Create Account");
+        AccountCreatedPage accountCreatedPage = signupPage.clickCreateAccount();
+        Assert.assertTrue(accountCreatedPage.isOpened(), "'ACCOUNT CREATED!' message should be visible");
+        logger.info("Step 7: Go to Home Page");
         homePage = accountCreatedPage.clickContinue();
         Assert.assertTrue(homePage.isOpened(), "Home page should be visible after registration");
     }
 
     @Test
-    public void testUserRegistrationWithIncorrectEmail() {
-
+    public void testUserRegistrationWithAlreadyExistEmail() {
         openHomePage();
-
-        logger.info("➡️ Step 1: Navigating Login Page");
-        LoginPage loginPage = homePage.header().clickSignupLogin();
+        logger.info("Step 1: Navigating Login Page");
+        LoginPage loginPage = homePage.header().clickSignupLoginButton();
         Assert.assertTrue(loginPage.isOpened(), "Login page should be opened");
-
-        logger.info("📝 Step 2: Entering name and email for registration");
-        loginPage.signUp("name", email);
-
+        logger.info("Step 2: Entering name and email for registration");
+        loginPage.signUp(loginUser.getName(), loginUser.getEmail());
         Assert.assertTrue(loginPage.isSignupErrorVisible(),
                 "The message 'Email Address already exist!' is visible");
     }

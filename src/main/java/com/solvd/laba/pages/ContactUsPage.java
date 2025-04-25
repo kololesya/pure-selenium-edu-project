@@ -1,12 +1,13 @@
 package com.solvd.laba.pages;
 
 import java.io.File;
-import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import com.solvd.laba.models.ContactForm;
 
 public class ContactUsPage extends BasePage {
 
@@ -44,19 +45,19 @@ public class ContactUsPage extends BasePage {
         return header().getActiveTabText().equalsIgnoreCase("Contact us");
     }
 
-    public void fillContactForm(Map<String, String> contactData) {
-        String filePath = contactData.get("contact_file_path");
-        File file = new File(filePath);
+    public void fillContactForm(ContactForm form) {
+        File file = new File(form.getFilePath());
         if (!file.exists()) {
-            throw new RuntimeException("Upload file not found at path: " + filePath);
+            throw new RuntimeException("Upload file not found at path: " + form.getFilePath());
         }
 
-        nameInput.sendKeys(contactData.get("name"));
-        emailInput.sendKeys(contactData.get("email"));
-        subjectInput.sendKeys(contactData.get("contact_subject"));
-        messageInput.sendKeys(contactData.get("contact_message"));
-        uploadFile.sendKeys(filePath);
+        nameInput.sendKeys(form.getName());
+        emailInput.sendKeys(form.getEmail());
+        subjectInput.sendKeys(form.getSubject());
+        messageInput.sendKeys(form.getMessage());
+        uploadFile.sendKeys(form.getFilePath());
     }
+
 
     public void submitForm() {
         submitButton.click();

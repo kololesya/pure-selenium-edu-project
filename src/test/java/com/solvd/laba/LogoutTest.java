@@ -1,5 +1,6 @@
 package com.solvd.laba;
 
+import com.solvd.laba.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,17 +10,12 @@ public class LogoutTest extends BaseTest{
 
     @Test
     public void testLogout(){
-        logger.info("🌐 Step 1: Opening home page");
-        openHomePage();
-
-        logger.info("🔐 Step 2: Logging in");
-        loginOnSite();
-
-        logger.info("🚪 Step 3: Clicking logout");
-        homePage.header().clickLogout();
-
-        logger.info("✅ Step 4: Verifying redirection to Login page");
-        LoginPage loginPage = new LoginPage(driver);
+        logger.info("Step 1: Logging in");
+        HomePage homePage = loginOnSite();
+        Assert.assertTrue(homePage.isOpened());
+        logger.info("Step 2: Clicking logout");
+        LoginPage loginPage = homePage.header().clickLogout();
+        logger.info("Step 3: Verifying redirection to Login page");
         Assert.assertTrue(loginPage.isOpened());
     }
 }

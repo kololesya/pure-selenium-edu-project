@@ -5,19 +5,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
     @FindBy(name = "name")
-    private WebElement nameInput;
+    private WebElement nameField;
 
     @FindBy(xpath = "//input[@data-qa='signup-email']")
-    private WebElement signupEmail;
+    private WebElement signupEmailField;
 
     @FindBy(xpath = "//input[@data-qa='login-email']")
-    private WebElement loginEmail;
+    private WebElement loginEmailField;
 
     @FindBy(xpath = "//input[@data-qa='login-password']")
-    private WebElement password;
+    private WebElement passwordField;
 
     @FindBy(xpath = "//button[@data-qa='signup-button']")
     private WebElement signupButton;
@@ -44,15 +44,15 @@ public class LoginPage extends BasePage{
     }
 
     public SignupPage signUp(String name, String email) {
-        nameInput.sendKeys(name);
-        signupEmail.sendKeys(email);
+        nameField.sendKeys(name);
+        signupEmailField.sendKeys(email);
         signupButton.click();
         return new SignupPage(driver);
     }
 
     public HomePage loginOnSite(String email, String password) {
-        loginEmail.sendKeys(email);
-        this.password.sendKeys(password);
+        loginEmailField.sendKeys(email);
+        passwordField.sendKeys(password);
         loginButton.click();
         return new HomePage(driver);
     }

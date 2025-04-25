@@ -3,7 +3,7 @@ package com.solvd.laba.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -15,5 +15,4 @@ public class HomePage extends BasePage{
         String activeTab = header().getActiveTabText();
         return activeTab.equalsIgnoreCase("Home");
     }
-
 }
