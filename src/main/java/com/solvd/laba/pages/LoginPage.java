@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.solvd.laba.components.HeaderComponent;
+
 public class LoginPage extends AbstractPage {
 
     @FindBy(xpath = "//input[@data-qa='signup-name']")
@@ -33,16 +35,22 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//h2[contains(text(),'Login to your account')]")
     private WebElement loginTitle;
 
+    private HeaderComponent headerComponent;
+
     public LoginPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
+        headerComponent = new HeaderComponent(driver);
+    }
+
+    public HeaderComponent getHeaderMenuComponent() {
+        return headerComponent;
     }
 
     @Override
     public boolean isPageOpened () {
         return isElementDisplayed(loginTitle);
     }
-
 
     public SignupPage signUp(String name, String email) {
         sendKeysTo(nameField, name);

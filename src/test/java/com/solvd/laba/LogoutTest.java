@@ -13,7 +13,7 @@ public class LogoutTest extends BaseTest {
         HomePage homePage = loginOnSite();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is opened");
         logger.info("Clicking logout");
-        LoginPage loginPage = homePage.header().clickLogout();
+        LoginPage loginPage = homePage.getHeaderMenuComponent().clickLogout();
         logger.info("Verifying redirection to Login page");
         Assert.assertTrue(loginPage.isPageOpened(), "Login page is opened");
     }

@@ -1,43 +1,45 @@
 package com.solvd.laba;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.solvd.laba.models.User;
+import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.pages.LoginPage;
 import com.solvd.laba.utils.UserFactory;
 
 public class LoginUserTest extends BaseTest {
 
-    @Test
-    public void testLoginWithCorrectUserCredentials() throws Exception {
-        User loginUser = UserFactory.buildUserForLogin();
-        openHomePage();
-        logger.info("Open Login Page");
-        LoginPage loginPage = homePage.header().clickSignupLoginButton();
-        Assert.assertTrue(loginPage.isPageOpened(), "Login page should be opened");
-        logger.info("Login with credentials from testdata.properties");
-        loginPage.logIn(loginUser.getEmail(), loginUser.getPassword());
-        logger.info("Verify login was successful");
-        String expectedUsername = loginUser.getName();
-        String actualText = loginPage.header().getLoggedInUsernameText();
-        Assert.assertTrue(actualText.contains(expectedUsername),
-                "Logged in username should contain the expected name from test data");
-        Assert.assertTrue(homePage.isPageOpened(), "Home page should be opened after login");
+    @DataProvider(name = "loginData")
+    public Object[][] loginData() throws Exception {
+        return new Object[][] {
+                { UserFactory.buildUserForLogin(), true, null },
+                { UserFactory.buildUserForRegistration(), false, "Your email or password is incorrect!" }
+        };
     }
 
-    @Test
-    public void testLoginWithIncorrectUserCredentials() throws Exception {
-        User wrongCredentials = UserFactory.buildUserForRegistration();
-        String textErrorMessageForLogin = "Your email or password is incorrect!";
-        openHomePage();
+    @Test(dataProvider = "loginData")
+    public void testLogin(User user, boolean isSuccessfulLogin, String expectedErrorMessage) {
+        HomePage homePage = openHomePage();
         logger.info("Open Login Page");
-        LoginPage loginPage = homePage.header().clickSignupLoginButton();
+        LoginPage loginPage = homePage.getHeaderMenuComponent().clickSignupLoginButton();
         Assert.assertTrue(loginPage.isPageOpened(), "Login page should be opened");
-        logger.info("Login with incorrect credentials");
-        loginPage.logIn(wrongCredentials.getEmail(), wrongCredentials.getPassword());
-        logger.info("Verify login was not successful");
-        Assert.assertTrue(loginPage.isErrorMessageDisplayed(textErrorMessageForLogin),
-                "The error message should be displayed for invalid login.");
+
+        logger.info("Login with credentials");
+        loginPage.logIn(user.getEmail(), user.getPassword());
+
+        if (isSuccessfulLogin) {
+            logger.info("Verify login was successful");
+            String expectedUsername = user.getName();
+            String actualText = loginPage.getHeaderMenuComponent().getLoggedInUsernameText();
+            Assert.assertTrue(actualText.contains(expectedUsername),
+                    "Logged in username should contain the expected name from test data");
+            Assert.assertTrue(homePage.isPageOpened(), "Home page should be opened after login");
+        } else {
+            logger.info("Verify login was not successful");
+            Assert.assertTrue(loginPage.isErrorMessageDisplayed(expectedErrorMessage),
+                    "The error message should be displayed for invalid login.");
+        }
     }
 }

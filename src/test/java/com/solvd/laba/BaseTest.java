@@ -1,53 +1,48 @@
 package com.solvd.laba;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-
 import com.solvd.laba.config.EnvironmentConfig;
 import com.solvd.laba.models.User;
 import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.pages.LoginPage;
+import com.solvd.laba.services.UserService;
 import com.solvd.laba.utils.UserFactory;
 import com.solvd.laba.utils.WebDriverFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public abstract class BaseTest {
 
     protected EnvironmentConfig environmentConfig;
-    protected HomePage homePage;
     protected final Logger logger = LogManager.getLogger(getClass());
+    protected WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         logger.info("Launching the browser and initializing data");
         environmentConfig = new EnvironmentConfig();
-        homePage = new HomePage(WebDriverFactory.getDriver());
+        driver = WebDriverFactory.getDriver();
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         logger.info("Closing the browser session");
         WebDriverFactory.quitDriver();
     }
 
-    public void openHomePage() {
+    public HomePage openHomePage() {
         String url = environmentConfig.getProperty("url");
         logger.info("Open Home Page: {}", url);
+        HomePage homePage = new HomePage(driver);
         homePage.open(url);
+        return homePage;
     }
 
     public HomePage loginOnSite() throws Exception {
-        openHomePage();
         User loginUser = UserFactory.buildUserForLogin();
-        logger.info("Login on the Site with user: {}", loginUser.getEmail());
-        LoginPage loginPage = homePage.header().clickSignupLoginButton();
-        loginPage.logIn(loginUser.getEmail(), loginUser.getPassword());
-        return new HomePage(WebDriverFactory.getDriver());
-    }
-
-    public WebDriver getDriver() {
-        return WebDriverFactory.getDriver();
+        logger.info("Logging in with user: {}", loginUser.getEmail());
+        return new UserService(driver).login(loginUser);
     }
 }

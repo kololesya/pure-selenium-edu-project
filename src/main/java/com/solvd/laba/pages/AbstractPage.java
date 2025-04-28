@@ -42,10 +42,6 @@ public abstract class AbstractPage {
 
     public abstract boolean isPageOpened ();
 
-    public HeaderComponent header() {
-        return new HeaderComponent(driver);
-    }
-
     protected void waitForVisibility(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }

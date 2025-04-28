@@ -1,6 +1,5 @@
 package com.solvd.laba.components;
 
-import com.solvd.laba.pages.ProductsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.pages.LoginPage;
 import com.solvd.laba.pages.ContactUsPage;
+import com.solvd.laba.pages.ProductsPage;
 
 public class HeaderComponent {
     private WebDriver driver;

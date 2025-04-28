@@ -5,15 +5,16 @@ import org.testng.annotations.Test;
 
 import com.solvd.laba.models.ContactForm;
 import com.solvd.laba.pages.ContactUsPage;
+import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.utils.ContactFormFactory;
 
 public class ContactUsTest extends BaseTest {
 
     @Test
     public void testContactWithUs() throws Exception {
-        openHomePage();
+        HomePage homePage = openHomePage();
         logger.info("Navigate to Contact Us Page");
-        ContactUsPage contactUsPage = homePage.header().clickContactUs();
+        ContactUsPage contactUsPage = homePage.getHeaderMenuComponent().clickContactUs();
         Assert.assertTrue(contactUsPage.isPageOpened(), "Contact Us page should be opened");
         logger.info("Build Contact Form and fill it");
         ContactForm contactForm = ContactFormFactory.buildContactForm();

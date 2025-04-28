@@ -12,9 +12,9 @@ public class UserRegistrationTest extends BaseTest {
     @Test
     public void testUserRegistration() throws Exception {
         User signUpUser = UserFactory.buildUserForRegistration();
-        openHomePage();
+        HomePage homePage = openHomePage();
         logger.info("Go to Login Page");
-        LoginPage loginPage = homePage.header().clickSignupLoginButton();
+        LoginPage loginPage = homePage.getHeaderMenuComponent().clickSignupLoginButton();
         Assert.assertTrue(loginPage.isPageOpened(), "Login page should be opened");
         logger.info("Enter user name and email");
         SignupPage signupPage = loginPage.signUp(signUpUser.getName(), signUpUser.getEmail());
@@ -33,9 +33,9 @@ public class UserRegistrationTest extends BaseTest {
     public void testUserRegistrationWithAlreadyExistEmail() throws Exception {
         User loginUser = UserFactory.buildUserForLogin();
         String textErrorMessageForLogin = "Email Address already exist!";
-        openHomePage();
+        HomePage homePage = openHomePage();
         logger.info("Go to Login Page");
-        LoginPage loginPage = homePage.header().clickSignupLoginButton();
+        LoginPage loginPage = homePage.getHeaderMenuComponent().clickSignupLoginButton();
         Assert.assertTrue(loginPage.isPageOpened(), "Login page should be opened");
         logger.info("Entering name and email for registration");
         loginPage.signUp(loginUser.getName(), loginUser.getEmail());
