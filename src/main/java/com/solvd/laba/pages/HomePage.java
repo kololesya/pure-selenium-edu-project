@@ -17,7 +17,7 @@ public class HomePage extends AbstractPage {
     }
 
     @Override
-    public boolean isOpened() {
+    public boolean isPageOpened () {
         return isElementDisplayed(homePageHeading);
     }
 }

@@ -33,7 +33,7 @@ public class ContactUsPage extends AbstractPage {
     private WebElement successMessage;
 
     @FindBy(xpath = "//a[contains(@class, 'btn') and contains(@class, 'btn-success')]")
-    private WebElement homeButtonFromContactPage;
+    private WebElement homeButton;
 
     public ContactUsPage(WebDriver driver) {
         super(driver);
@@ -41,7 +41,7 @@ public class ContactUsPage extends AbstractPage {
     }
 
     @Override
-    public boolean isOpened() {
+    public boolean isPageOpened () {
         return isElementDisplayed(submitButton);
      }
 
@@ -73,7 +73,7 @@ public class ContactUsPage extends AbstractPage {
 
     public HomePage clickHomeButton() {
         logger.info("Clicking on 'Home' button from Contact Us page");
-        click(homeButtonFromContactPage);
+        click(homeButton);
         return new HomePage(driver);
     }
 }

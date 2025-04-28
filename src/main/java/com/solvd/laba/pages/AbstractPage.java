@@ -38,7 +38,7 @@ public abstract class AbstractPage {
         driver.get(url);
     }
 
-    public abstract boolean isOpened();
+    public abstract boolean isPageOpened ();
 
     public HeaderComponent header() {
         return new HeaderComponent(driver);

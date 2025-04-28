@@ -11,7 +11,7 @@ import com.solvd.laba.config.TestDataConfig;
 public class SignupPage extends AbstractPage {
 
     @FindBy(xpath = "//b[text()='Enter Account Information']")
-    private WebElement enterAccountInfoTitle;
+    private WebElement accountInformationTitle;
 
     @FindBy(id = "id_gender1")
     private WebElement mrTitleRadio;
@@ -75,8 +75,8 @@ public class SignupPage extends AbstractPage {
     }
 
     @Override
-    public boolean isOpened() {
-        return isElementDisplayed(enterAccountInfoTitle);
+    public boolean isPageOpened () {
+        return isElementDisplayed(accountInformationTitle);
     }
 
     /**

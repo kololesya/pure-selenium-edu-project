@@ -15,28 +15,29 @@ public class LoginUserTest extends BaseTest {
         openHomePage();
         logger.info("Open Login Page");
         LoginPage loginPage = homePage.header().clickSignupLoginButton();
-        Assert.assertTrue(loginPage.isOpened(), "Login page should be opened");
+        Assert.assertTrue(loginPage.isPageOpened(), "Login page should be opened");
         logger.info("Login with credentials from testdata.properties");
-        loginPage.loginOnSite(loginUser.getEmail(), loginUser.getPassword());
+        loginPage.logIn(loginUser.getEmail(), loginUser.getPassword());
         logger.info("Verify login was successful");
         String expectedUsername = loginUser.getName();
         String actualText = loginPage.header().getLoggedInUsernameText();
         Assert.assertTrue(actualText.contains(expectedUsername),
                 "Logged in username should contain the expected name from test data");
-        Assert.assertTrue(homePage.isOpened(), "Home page should be opened after login");
+        Assert.assertTrue(homePage.isPageOpened(), "Home page should be opened after login");
     }
 
     @Test
     public void testLoginWithIncorrectUserCredentials() throws Exception {
         User wrongCredentials = UserFactory.buildUserForRegistration();
+        String textErrorMessageForLogin = "Your email or password is incorrect!";
         openHomePage();
         logger.info("Open Login Page");
         LoginPage loginPage = homePage.header().clickSignupLoginButton();
-        Assert.assertTrue(loginPage.isOpened(), "Login page should be opened");
+        Assert.assertTrue(loginPage.isPageOpened(), "Login page should be opened");
         logger.info("Login with incorrect credentials");
-        loginPage.loginOnSite(wrongCredentials.getEmail(), wrongCredentials.getPassword());
+        loginPage.logIn(wrongCredentials.getEmail(), wrongCredentials.getPassword());
         logger.info("Verify login was not successful");
-        Assert.assertTrue(loginPage.isLoginErrorVisible(),
-                "The message Your email or password is incorrect! is visible");
+        Assert.assertTrue(loginPage.isErrorMessageDisplayed(textErrorMessageForLogin),
+                "The error message should be displayed for invalid login.");
     }
 }

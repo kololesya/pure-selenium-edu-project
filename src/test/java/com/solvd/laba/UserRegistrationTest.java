@@ -14,10 +14,10 @@ public class UserRegistrationTest extends BaseTest {
         openHomePage();
         logger.info("Go to Login Page");
         LoginPage loginPage = homePage.header().clickSignupLoginButton();
-        Assert.assertTrue(loginPage.isOpened(), "Login page should be opened");
+        Assert.assertTrue(loginPage.isPageOpened(), "Login page should be opened");
         logger.info("Enter user name and email");
         SignupPage signupPage = loginPage.signUp(signUpUser.getName(), signUpUser.getEmail());
-        Assert.assertTrue(signupPage.isOpened(), "Signup page should be opened");
+        Assert.assertTrue(signupPage.isPageOpened(), "Signup page should be opened");
         logger.info("Fill in account information");
         signupPage.fillRegistrationDetails(signUpUser.getPassword(), signUpUser.getBirthDay(), signUpUser.getBirthMonth(), signUpUser.getBirthYear());
         logger.info("Fill in address information");
@@ -35,22 +35,23 @@ public class UserRegistrationTest extends BaseTest {
         );
         logger.info("Click Create Account button");
         AccountCreatedPage accountCreatedPage = signupPage.submitRegistrationForm();
-        Assert.assertTrue(accountCreatedPage.isOpened(), "'ACCOUNT CREATED!' message should be visible");
+        Assert.assertTrue(accountCreatedPage.isPageOpened(), "'ACCOUNT CREATED!' message should be visible");
         logger.info("Go to Home Page");
         homePage = accountCreatedPage.clickContinue();
-        Assert.assertTrue(homePage.isOpened(), "Home page should be visible after registration");
+        Assert.assertTrue(homePage.isPageOpened(), "Home page should be visible after registration");
     }
 
     @Test
     public void testUserRegistrationWithAlreadyExistEmail() throws Exception {
         User loginUser = UserFactory.buildUserForLogin();
+        String textErrorMessageForLogin = "Email Address already exist!";
         openHomePage();
         logger.info("Go to Login Page");
         LoginPage loginPage = homePage.header().clickSignupLoginButton();
-        Assert.assertTrue(loginPage.isOpened(), "Login page should be opened");
+        Assert.assertTrue(loginPage.isPageOpened(), "Login page should be opened");
         logger.info("Entering name and email for registration");
         loginPage.signUp(loginUser.getName(), loginUser.getEmail());
-        Assert.assertTrue(loginPage.isSignupErrorVisible(),
-                "The message 'Email Address already exist!' is visible");
+        Assert.assertTrue(loginPage.isErrorMessageDisplayed(textErrorMessageForLogin),
+                "The error message should be displayed for invalid registration.");
     }
 }

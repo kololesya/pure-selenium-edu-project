@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44dbb9b-46c6-4b85-9638-e3dab092a09c" name="Changes" comment="delete driver path from config; rename methods; add text to asserts">
+    <list default="true" id="d44dbb9b-46c6-4b85-9638-e3dab092a09c" name="Changes" comment="change method for checking if the isMessageTextCorrect">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ProductsPage.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ProductsPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AbstractPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AccountCreatedPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AccountCreatedPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ContactUsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ContactUsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/SignupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/SignupPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ContactUsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ContactUsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LoginUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LoginUserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LogoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LogoutTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/UserRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/UserRegistrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +45,6 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "login-tests",
     "onboarding.tips.debug.path": "D:/projects/PureSeleniumEduProject/src/main/java/com/Main.java",
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
@@ -46,7 +55,7 @@
       <recent name="com.solvd.laba" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ContactUsTest.testContactWithUs">
+  <component name="RunManager" selected="TestNG.UserRegistrationTest.testUserRegistrationWithAlreadyExistEmail">
     <configuration name="ContactUsTest.testContactWithUs" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="PureSeleniumEduProject" />
       <extension name="coverage">
@@ -82,6 +91,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginUserTest.testLoginWithCorrectUserCredentials" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="PureSeleniumEduProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.laba.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solvd.laba" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LoginUserTest" />
+      <option name="METHOD_NAME" value="testLoginWithCorrectUserCredentials" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginUserTest.testLoginWithIncorrectUserCredentials" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="PureSeleniumEduProject" />
       <extension name="coverage">
@@ -93,24 +120,6 @@
       <option name="PACKAGE_NAME" value="com.solvd.laba" />
       <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LoginUserTest" />
       <option name="METHOD_NAME" value="testLoginWithIncorrectUserCredentials" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductsPageTest.testProductsPageIsOpened" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="PureSeleniumEduProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.solvd.laba.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.solvd.laba" />
-      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.ProductsPageTest" />
-      <option name="METHOD_NAME" value="testProductsPageIsOpened" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -138,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.ContactUsTest.testContactWithUs" />
-        <item itemvalue="TestNG.LoginUserTest.testLoginWithIncorrectUserCredentials" />
-        <item itemvalue="TestNG.LoginUserTest" />
-        <item itemvalue="TestNG.ProductsPageTest.testProductsPageIsOpened" />
         <item itemvalue="TestNG.UserRegistrationTest.testUserRegistrationWithAlreadyExistEmail" />
+        <item itemvalue="TestNG.LoginUserTest.testLoginWithIncorrectUserCredentials" />
+        <item itemvalue="TestNG.LoginUserTest.testLoginWithCorrectUserCredentials" />
+        <item itemvalue="TestNG.ContactUsTest.testContactWithUs" />
+        <item itemvalue="TestNG.LoginUserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745840276116</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="change method for checking if the isMessageTextCorrect">
+      <option name="closed" value="true" />
+      <created>1745842032482</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745842032482</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -231,14 +248,15 @@
     <MESSAGE value="Task 2^ rename BasePage -&gt; AbstractPage; add click(), sendKeysTo(), isElementDisplayed(); refactoring isPageOpened on HomePage and LoginPage" />
     <MESSAGE value="refactor testng.xml for parallel testing" />
     <MESSAGE value="delete driver path from config; rename methods; add text to asserts" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete driver path from config; rename methods; add text to asserts" />
+    <MESSAGE value="change method for checking if the isMessageTextCorrect" />
+    <option name="LAST_COMMIT_MESSAGE" value="change method for checking if the isMessageTextCorrect" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java</url>
-          <line>51</line>
+          <line>50</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

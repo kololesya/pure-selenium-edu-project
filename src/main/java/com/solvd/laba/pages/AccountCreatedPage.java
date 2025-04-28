@@ -19,7 +19,7 @@ public class AccountCreatedPage extends AbstractPage {
     }
 
     @Override
-    public boolean isOpened() {
+    public boolean isPageOpened () {
         logger.info("Checking if 'Account Created' page is opened");
         return isElementDisplayed(accountCreatedMessage)
                 && accountCreatedMessage.getText().equalsIgnoreCase("Account Created!");

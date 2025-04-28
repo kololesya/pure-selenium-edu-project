@@ -14,7 +14,7 @@ public class ContactUsTest extends BaseTest {
         openHomePage();
         logger.info("Navigate to Contact Us Page");
         ContactUsPage contactUsPage = homePage.header().clickContactUs();
-        Assert.assertTrue(contactUsPage.isOpened(), "Contact Us page should be opened");
+        Assert.assertTrue(contactUsPage.isPageOpened(), "Contact Us page should be opened");
         logger.info("Build Contact Form and fill it");
         ContactForm contactForm = ContactFormFactory.buildContactForm();
         contactUsPage.fillContactForm(contactForm);
@@ -25,6 +25,6 @@ public class ContactUsTest extends BaseTest {
                 "Success message should be displayed");
         logger.info("Return to Home Page");
         homePage = contactUsPage.clickHomeButton();
-        Assert.assertTrue(homePage.isOpened(), "Home page should be opened after returning from Contact Us");
+        Assert.assertTrue(homePage.isPageOpened(), "Home page should be opened after returning from Contact Us");
     }
 }

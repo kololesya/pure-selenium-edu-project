@@ -43,7 +43,7 @@ public abstract class BaseTest {
         User loginUser = UserFactory.buildUserForLogin();
         logger.info("Login on the Site with user: {}", loginUser.getEmail());
         LoginPage loginPage = homePage.header().clickSignupLoginButton();
-        loginPage.loginOnSite(loginUser.getEmail(), loginUser.getPassword());
+        loginPage.logIn(loginUser.getEmail(), loginUser.getPassword());
         return new HomePage(WebDriverFactory.getDriver());
     }
 

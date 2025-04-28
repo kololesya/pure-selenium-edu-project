@@ -1,5 +1,8 @@
 package com.solvd.laba.pages;
 
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends AbstractPage {
 
-    @FindBy(name = "name")
+    @FindBy(xpath = "//input[@data-qa='signup-name']")
     private WebElement nameField;
 
     @FindBy(xpath = "//input[@data-qa='signup-email']")
@@ -25,11 +28,7 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//button[@data-qa='login-button']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//p[contains(text(),'Your email or password is incorrect!')]")
-    private WebElement loginErrorMessage;
-
-    @FindBy(xpath = "//p[contains(text(),'Email Address already exist!')]")
-    private WebElement signupErrorMessage;
+    private final String errorMessage = "//p[contains(text(),'%s')]";
 
     @FindBy(xpath = "//h2[contains(text(),'Login to your account')]")
     private WebElement loginTitle;
@@ -40,7 +39,7 @@ public class LoginPage extends AbstractPage {
     }
 
     @Override
-    public boolean isOpened() {
+    public boolean isPageOpened () {
         return isElementDisplayed(loginTitle);
     }
 
@@ -52,18 +51,21 @@ public class LoginPage extends AbstractPage {
         return new SignupPage(driver);
     }
 
-    public HomePage loginOnSite(String email, String password) {
+    public HomePage logIn (String email, String password) {
         sendKeysTo(loginEmailField, email);
         sendKeysTo(passwordField, password);
         click(loginButton);
         return new HomePage(driver);
     }
 
-    public boolean isLoginErrorVisible() {
-        return isElementDisplayed(loginErrorMessage);
-    }
-
-    public boolean isSignupErrorVisible() {
-        return isElementDisplayed(signupErrorMessage);
+    public boolean isErrorMessageDisplayed (String messageText) {
+        String locator = String.format(errorMessage, messageText);
+        try {
+            WebElement errorElement = driver.findElement(By.xpath(locator));
+            return errorElement.isDisplayed();
+        } catch (NoSuchElementException e) {
+            logger.warn("Error message not found: {}", messageText);
+            return false;
+        }
     }
 }
