@@ -67,9 +67,8 @@ public class ContactUsPage extends AbstractPage {
         logger.info("Alert accepted after form submission");
     }
 
-    public boolean isSuccessMessageDisplayed() {
-        logger.info("Checking if success message is displayed");
-        return isElementDisplayed(successMessage);
+    public boolean isMessageTextCorrect(String expectedMessage) {
+        return successMessage.getText().contains(expectedMessage);
     }
 
     public HomePage clickHomeButton() {

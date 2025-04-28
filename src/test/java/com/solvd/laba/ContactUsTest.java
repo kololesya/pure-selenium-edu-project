@@ -21,7 +21,8 @@ public class ContactUsTest extends BaseTest {
         logger.info("Submit the form");
         contactUsPage.submitForm();
         logger.info("Verify success message");
-        Assert.assertTrue(contactUsPage.isSuccessMessageDisplayed(), "Success message should be displayed");
+        Assert.assertTrue(contactUsPage.isMessageTextCorrect("Success! Your details have been submitted successfully."),
+                "Success message should be displayed");
         logger.info("Return to Home Page");
         homePage = contactUsPage.clickHomeButton();
         Assert.assertTrue(homePage.isOpened(), "Home page should be opened after returning from Contact Us");
