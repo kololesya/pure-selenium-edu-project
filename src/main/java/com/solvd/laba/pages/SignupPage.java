@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import com.solvd.laba.config.TestDataConfig;
+import com.solvd.laba.config.TestDataReader;
+import com.solvd.laba.models.User;
 
 public class SignupPage extends AbstractPage {
 
@@ -67,7 +68,7 @@ public class SignupPage extends AbstractPage {
     @FindBy(xpath = "//button[@data-qa='create-account']")
     private WebElement createAccountButton;
 
-    private static final TestDataConfig testData = new TestDataConfig();
+    private static final TestDataReader testData = new TestDataReader();
 
     public SignupPage(WebDriver driver) {
         super(driver);
@@ -79,53 +80,102 @@ public class SignupPage extends AbstractPage {
         return isElementDisplayed(accountInformationTitle);
     }
 
-    /**
-     * Fills the registration details section with the given user information.
-     *
-     * @param password User's password
-     * @param day      User's birth day
-     * @param month    User's birth month
-     * @param year     User's birth year
-     */
-
-    public void fillRegistrationDetails(String password, String day, String month, String year) {
+    public void selectMaleSex () {
         click(mrTitleRadio);
+    }
+
+    public void enterPassword(String password) {
+        clearField(passwordField);
         sendKeysTo(passwordField, password);
+    }
+
+    public void selectBirthDay(String day) {
         new Select(daysDropdown).selectByValue(day);
+    }
+
+    public void selectBirthMonth(String month) {
         new Select(monthsDropdown).selectByVisibleText(month);
+    }
+
+    public void selectBirthYear(String year) {
         new Select(yearsDropdown).selectByValue(year);
+    }
+
+    public void subscribeToNewsletter() {
         click(newsletterCheckbox);
+    }
+
+    public void subscribeToOffers() {
         click(offersCheckbox);
     }
 
-    /**
-     * Fills the address details section with the given user information.
-     *
-     * @param firstName User's first name
-     * @param lastName  User's last name
-     * @param company   User's company name
-     * @param address1  User's primary address
-     * @param address2  User's secondary address
-     * @param country   User's country
-     * @param state     User's state
-     * @param city      User's city
-     * @param zip       User's zip code
-     * @param mobile    User's mobile number
-     */
-
-    public void fillAddressDetails(String firstName, String lastName, String company,
-                                   String address1, String address2, String country,
-                                   String state, String city, String zip, String mobile) {
+    public void enterFirstName(String firstName) {
+        clearField(firstNameField);
         sendKeysTo(firstNameField, firstName);
+    }
+
+    public void enterLastName(String lastName) {
+        clearField(lastNameFiled);
         sendKeysTo(lastNameFiled, lastName);
+    }
+
+    public void enterCompany(String company) {
+        clearField(companyField);
         sendKeysTo(companyField, company);
+    }
+
+    public void enterAddress1(String address1) {
+        clearField(address1Field);
         sendKeysTo(address1Field, address1);
+    }
+
+    public void enterAddress2(String address2) {
+        clearField(address2Field);
         sendKeysTo(address2Field, address2);
+    }
+
+    public void selectCountry(String country) {
         new Select(countryDropdown).selectByVisibleText(country);
+    }
+
+    public void enterState(String state) {
+        clearField(stateField);
         sendKeysTo(stateField, state);
+    }
+
+    public void enterCity(String city) {
+        clearField(cityField);
         sendKeysTo(cityField, city);
+    }
+
+    public void enterZipCode(String zip) {
+        clearField(zipcodeField);
         sendKeysTo(zipcodeField, zip);
+    }
+
+    public void enterMobileNumber(String mobile) {
+        clearField(mobileNumberField);
         sendKeysTo(mobileNumberField, mobile);
+    }
+
+    public void completeSignUpForm(User user) {
+        selectMaleSex();
+        enterPassword(user.getPassword());
+        selectBirthDay(user.getBirthDay());
+        selectBirthMonth(user.getBirthMonth());
+        selectBirthYear(user.getBirthYear());
+        subscribeToNewsletter();
+        subscribeToOffers();
+        enterFirstName(user.getName());
+        enterLastName(user.getLastName());
+        enterCompany(user.getCompany());
+        enterAddress1(user.getAddress1());
+        enterAddress2(user.getAddress2());
+        selectCountry(user.getCountry());
+        enterState(user.getState());
+        enterCity(user.getCity());
+        enterZipCode(user.getZipcode());
+        enterMobileNumber(user.getMobile());
     }
 
     public AccountCreatedPage submitRegistrationForm() {

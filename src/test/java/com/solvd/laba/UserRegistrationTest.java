@@ -8,6 +8,7 @@ import com.solvd.laba.utils.UserFactory;
 import com.solvd.laba.models.User;
 
 public class UserRegistrationTest extends BaseTest {
+
     @Test
     public void testUserRegistration() throws Exception {
         User signUpUser = UserFactory.buildUserForRegistration();
@@ -18,22 +19,9 @@ public class UserRegistrationTest extends BaseTest {
         logger.info("Enter user name and email");
         SignupPage signupPage = loginPage.signUp(signUpUser.getName(), signUpUser.getEmail());
         Assert.assertTrue(signupPage.isPageOpened(), "Signup page should be opened");
-        logger.info("Fill in account information");
-        signupPage.fillRegistrationDetails(signUpUser.getPassword(), signUpUser.getBirthDay(), signUpUser.getBirthMonth(), signUpUser.getBirthYear());
-        logger.info("Fill in address information");
-        signupPage.fillAddressDetails(
-                signUpUser.getName(),
-                signUpUser.getLastName(),
-                signUpUser.getCompany(),
-                signUpUser.getAddress1(),
-                signUpUser.getAddress2(),
-                signUpUser.getCountry(),
-                signUpUser.getState(),
-                signUpUser.getCity(),
-                signUpUser.getZipcode(),
-                signUpUser.getMobile()
-        );
-        logger.info("Click Create Account button");
+        logger.info("Fill in signup form");
+        signupPage.completeSignUpForm(signUpUser);
+        logger.info("Submit registration");
         AccountCreatedPage accountCreatedPage = signupPage.submitRegistrationForm();
         Assert.assertTrue(accountCreatedPage.isPageOpened(), "'ACCOUNT CREATED!' message should be visible");
         logger.info("Go to Home Page");

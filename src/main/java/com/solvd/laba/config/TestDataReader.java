@@ -4,10 +4,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class TestDataConfig {
+public class TestDataReader {
     private Properties properties;
 
-    public TestDataConfig() {
+    public TestDataReader () {
         properties = new Properties();
         try (FileInputStream input = new FileInputStream("src/test/resources/testdata.properties")) {
             properties.load(input);

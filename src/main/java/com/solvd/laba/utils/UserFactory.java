@@ -1,11 +1,11 @@
 package com.solvd.laba.utils;
 
-import com.solvd.laba.config.TestDataConfig;
+import com.solvd.laba.config.TestDataReader;
 import com.solvd.laba.models.User;
 
 public class UserFactory {
 
-    private static final TestDataConfig testData = new TestDataConfig();
+    private static final TestDataReader testData = new TestDataReader();
 
     public static User buildUserForRegistration() throws Exception {
         return new User.UserBuilder()

@@ -8,20 +8,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.solvd.laba.config.Config;
+import com.solvd.laba.config.EnvironmentConfig;
 import com.solvd.laba.components.HeaderComponent;
 
 public abstract class AbstractPage {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
+
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
-    private static final Config config = new Config();
+    private static final EnvironmentConfig ENVIRONMENT_CONFIG = new EnvironmentConfig();
+
     private static final long EXPLICIT_TIMEOUT;
 
     static {
-        String timeoutFromConfig = config.getProperty("explicit_timeout");
+        String timeoutFromConfig = ENVIRONMENT_CONFIG.getProperty("explicit_timeout");
         if (timeoutFromConfig != null && !timeoutFromConfig.isEmpty()) {
             EXPLICIT_TIMEOUT = Long.parseLong(timeoutFromConfig);
         } else {
@@ -44,16 +46,23 @@ public abstract class AbstractPage {
         return new HeaderComponent(driver);
     }
 
+    protected void waitForVisibility(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
     protected void click(WebElement element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        waitForVisibility(element);
         logger.info("Clicking on element: {}", element);
         element.click();
     }
 
-    protected void sendKeysTo(WebElement element, String text) {
-        wait.until(ExpectedConditions.visibilityOf(element));
-        logger.info("Typing '{}' into element: {}", text, element);
+    protected void clearField(WebElement element) {
+        waitForVisibility(element);
         element.clear();
+        logger.info("Cleared text in element: {}", element);
+    }
+
+    protected void sendKeysTo(WebElement element, String text) {
+        logger.info("Typing '{}' into element: {}", text, element);
         element.sendKeys(text);
     }
 

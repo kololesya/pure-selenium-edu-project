@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import com.solvd.laba.config.Config;
+import com.solvd.laba.config.EnvironmentConfig;
 import com.solvd.laba.models.User;
 import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.pages.LoginPage;
@@ -15,14 +15,14 @@ import com.solvd.laba.utils.WebDriverFactory;
 
 public abstract class BaseTest {
 
-    protected Config config;
+    protected EnvironmentConfig environmentConfig;
     protected HomePage homePage;
     protected final Logger logger = LogManager.getLogger(getClass());
 
     @BeforeClass
     public void setUp() {
         logger.info("Launching the browser and initializing data");
-        config = new Config();
+        environmentConfig = new EnvironmentConfig();
         homePage = new HomePage(WebDriverFactory.getDriver());
     }
 
@@ -33,7 +33,7 @@ public abstract class BaseTest {
     }
 
     public void openHomePage() {
-        String url = config.getProperty("url");
+        String url = environmentConfig.getProperty("url");
         logger.info("Open Home Page: {}", url);
         homePage.open(url);
     }

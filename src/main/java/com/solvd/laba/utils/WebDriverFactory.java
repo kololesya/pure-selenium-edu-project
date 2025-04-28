@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.solvd.laba.config.Config;
+import com.solvd.laba.config.EnvironmentConfig;
 
 public class WebDriverFactory {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -15,8 +15,8 @@ public class WebDriverFactory {
 
     public static WebDriver getDriver() {
         if (driver.get() == null) {
-            Config config = new Config();
-            String browser = config.getProperty("browser", "chrome");
+            EnvironmentConfig environmentConfig = new EnvironmentConfig();
+            String browser = environmentConfig.getProperty("browser", "chrome");
 
             switch (browser.toLowerCase()) {
                 case "chrome":
