@@ -4,30 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44dbb9b-46c6-4b85-9638-e3dab092a09c" name="Changes" comment="add ContactUsTest">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/models/ContactForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/utils/ContactFormFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testfile.txt" afterDir="false" />
+    <list default="true" id="d44dbb9b-46c6-4b85-9638-e3dab092a09c" name="Changes" comment="refactor testng.xml for parallel testing">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ProductsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ProductsPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/components/HeaderComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/components/HeaderComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AccountCreatedPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AccountCreatedPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AbstractPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ContactUsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ContactUsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/SignupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/SignupPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/utils/UserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/utils/UserFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/utils/WebDriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/utils/WebDriverFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ContactUsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ContactUsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LoginUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LoginUserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LogoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LogoutTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/UserRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/UserRegistrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/testdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testdata.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,26 +56,8 @@
       <recent name="com.solvd.laba" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ContactUsTest.testContactWithUs">
-    <configuration name="ContactUsTest.testContactWithUs" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="PureSeleniumEduProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.solvd.laba.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.solvd.laba" />
-      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.ContactUsTest" />
-      <option name="METHOD_NAME" value="testContactWithUs" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginUserTest.testLoginWithCorrectUserCredentials" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.LoginUserTest.testLoginWithIncorrectUserCredentials">
+    <configuration name="LoginUserTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="PureSeleniumEduProject" />
       <extension name="coverage">
         <pattern>
@@ -93,8 +67,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.solvd.laba" />
       <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LoginUserTest" />
-      <option name="METHOD_NAME" value="testLoginWithCorrectUserCredentials" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -119,7 +92,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LogoutTest.testLogout" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductsPageTest.testProductsPageIsOpened" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="PureSeleniumEduProject" />
       <extension name="coverage">
         <pattern>
@@ -128,9 +101,26 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.solvd.laba" />
-      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LogoutTest" />
-      <option name="METHOD_NAME" value="testLogout" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.ProductsPageTest" />
+      <option name="METHOD_NAME" value="testProductsPageIsOpened" />
       <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRegistrationTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="PureSeleniumEduProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.laba.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solvd.laba" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.UserRegistrationTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -157,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.ContactUsTest.testContactWithUs" />
-        <item itemvalue="TestNG.LogoutTest.testLogout" />
         <item itemvalue="TestNG.LoginUserTest.testLoginWithIncorrectUserCredentials" />
-        <item itemvalue="TestNG.LoginUserTest.testLoginWithCorrectUserCredentials" />
+        <item itemvalue="TestNG.LoginUserTest" />
+        <item itemvalue="TestNG.ProductsPageTest.testProductsPageIsOpened" />
         <item itemvalue="TestNG.UserRegistrationTest.testUserRegistrationWithAlreadyExistEmail" />
+        <item itemvalue="TestNG.UserRegistrationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -198,26 +188,57 @@
       <option name="project" value="LOCAL" />
       <updated>1744995567986</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add UserBuilde and ContactFormBuilder for filling forms on the site; refactoring code">
+      <option name="closed" value="true" />
+      <created>1745582089099</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745582089099</updated>
+    </task>
+    <task id="LOCAL-00005" summary="encrypt email and password">
+      <option name="closed" value="true" />
+      <created>1745584098582</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745584098584</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Task 2^ rename BasePage -&gt; AbstractPage; add click(), sendKeysTo(), isElementDisplayed(); refactoring isPageOpened on HomePage and LoginPage">
+      <option name="closed" value="true" />
+      <created>1745588653535</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745588653535</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactor testng.xml for parallel testing">
+      <option name="closed" value="true" />
+      <created>1745589283153</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745589283153</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add UserRegistrationTest and LoginUserTest" />
     <MESSAGE value="add testLoginWithIncorrectCredentials, testUserRegistrationWithIncorrectEmail, testLogout" />
     <MESSAGE value="add ContactUsTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="add ContactUsTest" />
+    <MESSAGE value="add UserBuilde and ContactFormBuilder for filling forms on the site; refactoring code" />
+    <MESSAGE value="encrypt email and password" />
+    <MESSAGE value="Task 2^ rename BasePage -&gt; AbstractPage; add click(), sendKeysTo(), isElementDisplayed(); refactoring isPageOpened on HomePage and LoginPage" />
+    <MESSAGE value="refactor testng.xml for parallel testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor testng.xml for parallel testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/solvd/Main.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

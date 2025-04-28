@@ -1,19 +1,37 @@
 package com.solvd.laba.utils;
 
-import com.solvd.laba.config.Config;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.solvd.laba.config.Config;
 
 public class WebDriverFactory {
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    private static final Logger logger = LoggerFactory.getLogger(WebDriverFactory.class);
 
     public static WebDriver getDriver() {
         if (driver.get() == null) {
             Config config = new Config();
-            String chromeDriverPath = config.getProperty("chrome_driver_path");
+            String browser = config.getProperty("browser", "chrome");
 
-            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-            driver.set(new ChromeDriver());
+            switch (browser.toLowerCase()) {
+                case "chrome":
+                    WebDriverManager.chromedriver().setup();
+                    driver.set(new ChromeDriver());
+                    logger.info("Launched Chrome browser");
+                    break;
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    driver.set(new FirefoxDriver());
+                    logger.info("Launched Firefox browser");
+                    break;
+                default:
+                    throw new RuntimeException("Browser not supported: " + browser);
+            }
         }
         return driver.get();
     }

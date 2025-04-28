@@ -1,16 +1,15 @@
 package com.solvd.laba.pages;
 
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
+import java.time.Duration;
 
-import com.solvd.laba.components.HeaderComponent;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.Duration;
+import com.solvd.laba.config.Config;
+import com.solvd.laba.components.HeaderComponent;
 
 public abstract class AbstractPage {
 
@@ -18,9 +17,21 @@ public abstract class AbstractPage {
     protected WebDriverWait wait;
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
+    private static final Config config = new Config();
+    private static final long EXPLICIT_TIMEOUT;
+
+    static {
+        String timeoutFromConfig = config.getProperty("explicit_timeout");
+        if (timeoutFromConfig != null && !timeoutFromConfig.isEmpty()) {
+            EXPLICIT_TIMEOUT = Long.parseLong(timeoutFromConfig);
+        } else {
+            throw new RuntimeException("explicit_timeout is missing in config.properties file");
+        }
+    }
+
     public AbstractPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_TIMEOUT));
     }
 
     public void open(String url) {

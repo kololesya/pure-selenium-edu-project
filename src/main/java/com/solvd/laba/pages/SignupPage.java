@@ -79,7 +79,16 @@ public class SignupPage extends AbstractPage {
         return isElementDisplayed(enterAccountInfoTitle);
     }
 
-    public void fillAccountInfo(String password, String day, String month, String year) {
+    /**
+     * Fills the registration details section with the given user information.
+     *
+     * @param password User's password
+     * @param day      User's birth day
+     * @param month    User's birth month
+     * @param year     User's birth year
+     */
+
+    public void fillRegistrationDetails(String password, String day, String month, String year) {
         click(mrTitleRadio);
         sendKeysTo(passwordField, password);
         new Select(daysDropdown).selectByValue(day);
@@ -89,9 +98,24 @@ public class SignupPage extends AbstractPage {
         click(offersCheckbox);
     }
 
-    public void fillAddressInfo(String firstName, String lastName, String company,
-                                String address1, String address2, String country,
-                                String state, String city, String zip, String mobile) {
+    /**
+     * Fills the address details section with the given user information.
+     *
+     * @param firstName User's first name
+     * @param lastName  User's last name
+     * @param company   User's company name
+     * @param address1  User's primary address
+     * @param address2  User's secondary address
+     * @param country   User's country
+     * @param state     User's state
+     * @param city      User's city
+     * @param zip       User's zip code
+     * @param mobile    User's mobile number
+     */
+
+    public void fillAddressDetails(String firstName, String lastName, String company,
+                                   String address1, String address2, String country,
+                                   String state, String city, String zip, String mobile) {
         sendKeysTo(firstNameField, firstName);
         sendKeysTo(lastNameFiled, lastName);
         sendKeysTo(companyField, company);
@@ -104,7 +128,7 @@ public class SignupPage extends AbstractPage {
         sendKeysTo(mobileNumberField, mobile);
     }
 
-    public AccountCreatedPage clickCreateAccount() {
+    public AccountCreatedPage submitRegistrationForm() {
         click(createAccountButton);
         return new AccountCreatedPage(driver);
     }

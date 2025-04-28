@@ -11,25 +11,25 @@ import com.solvd.laba.models.ContactForm;
 
 public class ContactUsPage extends AbstractPage {
 
-    @FindBy(name = "name")
+    @FindBy(css = "input[data-qa='name']")
     private WebElement nameField;
-
-    @FindBy(name = "email")
-    private WebElement emailField;
-
-    @FindBy(name = "subject")
-    private WebElement subjectField;
 
     @FindBy(id = "message")
     private WebElement messageField;
 
-    @FindBy(name = "upload_file")
+    @FindBy(css = "input[data-qa='email']")
+    private WebElement emailField;
+
+    @FindBy(css = "input[data-qa='subject']")
+    private WebElement subjectField;
+
+    @FindBy(css = "input[name='upload_file']")
     private WebElement uploadFile;
 
-    @FindBy(name = "submit")
+    @FindBy(css = "input[data-qa='submit-button']")
     private WebElement submitButton;
 
-    @FindBy(xpath = "//div[contains(@class,'status') and contains(text(),'Success! Your details have been submitted successfully.')]")
+    @FindBy(css = "div.status.alert-success")
     private WebElement successMessage;
 
     @FindBy(xpath = "//a[contains(@class, 'btn') and contains(@class, 'btn-success')]")
@@ -42,9 +42,8 @@ public class ContactUsPage extends AbstractPage {
 
     @Override
     public boolean isOpened() {
-        logger.info("Checking if Contact Us page is opened");
-        return header().getActiveTabText().equalsIgnoreCase("Contact us");
-    }
+        return isElementDisplayed(submitButton);
+     }
 
     public void fillContactForm(ContactForm form) {
         logger.info("Filling Contact Us form");

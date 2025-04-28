@@ -7,48 +7,47 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import com.solvd.laba.config.Config;
+import com.solvd.laba.models.User;
 import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.pages.LoginPage;
 import com.solvd.laba.utils.UserFactory;
 import com.solvd.laba.utils.WebDriverFactory;
-import com.solvd.laba.models.User;
 
 public abstract class BaseTest {
 
-    private WebDriver driver;
-    private Config config;
+    protected Config config;
     protected HomePage homePage;
-
     protected final Logger logger = LogManager.getLogger(getClass());
 
     @BeforeClass
     public void setUp() {
         logger.info("Launching the browser and initializing data");
-        driver = WebDriverFactory.getDriver();
         config = new Config();
-        homePage = new HomePage(driver);
+        homePage = new HomePage(WebDriverFactory.getDriver());
     }
 
     @AfterClass
-    public void closeBrowserSession() {
+    public void tearDown() {
         logger.info("Closing the browser session");
         WebDriverFactory.quitDriver();
     }
 
     public void openHomePage() {
         String url = config.getProperty("url");
+        logger.info("Open Home Page: {}", url);
         homePage.open(url);
     }
 
     public HomePage loginOnSite() throws Exception {
         openHomePage();
         User loginUser = UserFactory.buildUserForLogin();
+        logger.info("Login on the Site with user: {}", loginUser.getEmail());
         LoginPage loginPage = homePage.header().clickSignupLoginButton();
         loginPage.loginOnSite(loginUser.getEmail(), loginUser.getPassword());
-        return new HomePage(driver);
+        return new HomePage(WebDriverFactory.getDriver());
     }
 
     public WebDriver getDriver() {
-        return driver;
+        return WebDriverFactory.getDriver();
     }
 }

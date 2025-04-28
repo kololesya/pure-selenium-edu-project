@@ -1,10 +1,11 @@
 package com.solvd.laba;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 import com.solvd.laba.models.User;
 import com.solvd.laba.pages.LoginPage;
 import com.solvd.laba.utils.UserFactory;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
 public class LoginUserTest extends BaseTest {
 
@@ -18,7 +19,10 @@ public class LoginUserTest extends BaseTest {
         logger.info("Login with credentials from testdata.properties");
         loginPage.loginOnSite(loginUser.getEmail(), loginUser.getPassword());
         logger.info("Verify login was successful");
-        Assert.assertTrue(loginPage.header().isUserLoggedIn(loginUser.getName()));
+        String expectedUsername = loginUser.getName();
+        String actualText = loginPage.header().getLoggedInUsernameText();
+        Assert.assertTrue(actualText.contains(expectedUsername),
+                "Logged in username should contain the expected name from test data");
         Assert.assertTrue(homePage.isOpened(), "Home page should be opened after login");
     }
 

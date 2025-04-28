@@ -12,12 +12,15 @@ public class Config {
         try (FileInputStream input = new FileInputStream("src/test/resources/config.properties")) {
             properties.load(input);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Failed to load configuration file", e);
         }
     }
 
     public String getProperty(String key) {
         return properties.getProperty(key);
     }
-}
 
+    public String getProperty(String key, String defaultValue) {
+        return properties.getProperty(key, defaultValue);
+    }
+}

@@ -1,5 +1,6 @@
 package com.solvd.laba.components;
 
+import com.solvd.laba.pages.ProductsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,17 +19,17 @@ public class HeaderComponent {
     @FindBy(css = "a[href='/logout']")
     private WebElement logoutButton;
 
-    @FindBy(css = "a[href='/contact_us']")
+    @FindBy(xpath = "//a[@href='/contact_us']")
     private WebElement contactUsButton;
 
-    @FindBy(css = "a[href='/']")
+    @FindBy(xpath = "//a[contains(@class, 'btn') and contains(@class, 'btn-success') and text()='Home']")
     private WebElement homeButton;
 
     @FindBy(xpath = "//a[contains(text(),'Logged in as')]")
     private WebElement loggedInText;
 
-    @FindBy(xpath = "//*[@id='header']//a[@style='color: orange;']")
-    private WebElement activeTab;
+    @FindBy(xpath = "//a[@href='/products']")
+    private WebElement productsTab;
 
     public HeaderComponent(WebDriver driver) {
         this.driver = driver;
@@ -50,17 +51,21 @@ public class HeaderComponent {
         return new LoginPage(driver);
     }
 
-    public boolean isUserLoggedIn(String username) {
-        return loggedInText.isDisplayed() && loggedInText.getText().contains(username);
-    }
-
     public ContactUsPage clickContactUs(){
         contactUsButton.click();
         return new ContactUsPage(driver);
     }
 
+    public ProductsPage clickProducts(){
+        productsTab.click();
+        return new ProductsPage(driver);
+    }
 
-    public String getActiveTabText() {
-        return activeTab.getText().trim();
+    public String getLoggedInUsernameText() {
+        if (loggedInText.isDisplayed()) {
+            return loggedInText.getText().trim();
+        } else {
+            throw new IllegalStateException("Logged in text is not visible on the page.");
+        }
     }
 }
