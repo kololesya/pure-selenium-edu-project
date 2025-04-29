@@ -34,7 +34,7 @@ public class UserRegistrationTest extends BaseTest {
             homePage = accountCreatedPage.clickContinue();
             Assert.assertTrue(homePage.isPageOpened(), "Home page should be visible after registration");
         } else {
-            Assert.assertTrue(loginPage.isErrorMessageDisplayed(expectedErrorMessage.getText()),
+            Assert.assertEquals(loginPage.getDisplayedErrorMessage(), expectedErrorMessage.getText(),
                     "The error message should be displayed for invalid registration.");
         }
     }

@@ -15,7 +15,7 @@ public class User {
     private String state;
     private String city;
     private String zipcode;
-    private String mobile;
+    private String mobilePhone;
 
     private User(UserBuilder builder) {
         this.name = builder.name;
@@ -32,7 +32,7 @@ public class User {
         this.state = builder.state;
         this.city = builder.city;
         this.zipcode = builder.zipcode;
-        this.mobile = builder.mobile;
+        this.mobilePhone = builder.mobile;
     }
 
     public static class UserBuilder {
@@ -146,5 +146,5 @@ public class User {
     public String getState() { return state; }
     public String getCity() { return city; }
     public String getZipcode() { return zipcode; }
-    public String getMobile() { return mobile; }
+    public String getMobilePhone () { return mobilePhone; }
 }

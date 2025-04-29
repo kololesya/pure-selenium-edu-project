@@ -30,7 +30,8 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//button[@data-qa='login-button']")
     private WebElement loginButton;
 
-    private final String errorMessage = "//p[contains(text(),'%s')]";
+    @FindBy(xpath = "//p[@style='color: red;']")
+    private WebElement errorMessageElement;
 
     @FindBy(xpath = "//h2[contains(text(),'Login to your account')]")
     private WebElement loginTitle;
@@ -69,15 +70,8 @@ public class LoginPage extends AbstractPage {
         return new HomePage(driver);
     }
 
-    public boolean isErrorMessageDisplayed (String messageText) {
-        logger.info("Verify error message for existing email");
-        String locator = String.format(errorMessage, messageText);
-        try {
-            WebElement errorElement = driver.findElement(By.xpath(locator));
-            return errorElement.isDisplayed();
-        } catch (NoSuchElementException e) {
-            logger.warn("Error message not found: {}", messageText);
-            return false;
-        }
+    public String getDisplayedErrorMessage() {
+        return errorMessageElement.getText().trim();
     }
+
 }

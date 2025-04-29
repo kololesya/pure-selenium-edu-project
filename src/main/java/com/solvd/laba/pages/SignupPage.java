@@ -166,7 +166,7 @@ public class SignupPage extends AbstractPage {
         enterState(user.getState());
         enterCity(user.getCity());
         enterZipCode(user.getZipcode());
-        enterMobileNumber(user.getMobile());
+        enterMobileNumber(user.getMobilePhone());
     }
 
     public AccountCreatedPage submitRegistrationForm() {

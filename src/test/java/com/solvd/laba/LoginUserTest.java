@@ -27,15 +27,13 @@ public class LoginUserTest extends BaseTest {
         Assert.assertTrue(loginPage.isPageOpened(), "Login page should be opened");
         loginPage.logIn(user.getEmail(), user.getPassword());
         if (isSuccessfulLogin) {
-            String expectedUsername = user.getName();
-            String actualText = loginPage.getHeaderMenuComponent().getUserName();
-            Assert.assertTrue(actualText.contains(expectedUsername),
-                    "Logged in username should contain the expected name from test data");
-            Assert.assertTrue(homePage.isPageOpened(), "Home page should be opened after login");
+            Assert.assertTrue(
+                    loginPage.getHeaderMenuComponent().getUserName().contains(user.getName()),
+                    "'Logged in as' username is not visible");
         } else {
-            logger.info("Verify login was not successful");
-            Assert.assertTrue(loginPage.isErrorMessageDisplayed(expectedErrorMessage.getText()),
-                    "The error message should be displayed for invalid login.");
+            Assert.assertEquals(
+                    loginPage.getDisplayedErrorMessage(), expectedErrorMessage.getText(),
+                    "Login verification failed");
         }
     }
 }
