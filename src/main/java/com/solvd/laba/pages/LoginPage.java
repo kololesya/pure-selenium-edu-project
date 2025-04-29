@@ -53,15 +53,15 @@ public class LoginPage extends AbstractPage {
     }
 
     public SignupPage signUp(String name, String email) {
-        sendKeysTo(nameField, name);
-        sendKeysTo(signupEmailField, email);
+        sendKeys(nameField, name);
+        sendKeys(signupEmailField, email);
         click(signupButton);
         return new SignupPage(driver);
     }
 
     public HomePage logIn (String email, String password) {
-        sendKeysTo(loginEmailField, email);
-        sendKeysTo(passwordField, password);
+        sendKeys(loginEmailField, email);
+        sendKeys(passwordField, password);
         click(loginButton);
         return new HomePage(driver);
     }

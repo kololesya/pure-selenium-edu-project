@@ -33,7 +33,7 @@ public class LoginUserTest extends BaseTest {
         if (isSuccessfulLogin) {
             logger.info("Verify login was successful");
             String expectedUsername = user.getName();
-            String actualText = loginPage.getHeaderMenuComponent().getLoggedInUsernameText();
+            String actualText = loginPage.getHeaderMenuComponent().getUserName();
             Assert.assertTrue(actualText.contains(expectedUsername),
                     "Logged in username should contain the expected name from test data");
             Assert.assertTrue(homePage.isPageOpened(), "Home page should be opened after login");

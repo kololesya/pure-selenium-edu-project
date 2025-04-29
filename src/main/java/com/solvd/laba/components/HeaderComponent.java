@@ -51,17 +51,17 @@ public class HeaderComponent {
         return new LoginPage(driver);
     }
 
-    public ContactUsPage clickContactUs(){
+    public ContactUsPage clickContactUs() {
         contactUsButton.click();
         return new ContactUsPage(driver);
     }
 
-    public ProductsPage clickProducts(){
+    public ProductsPage clickProducts() {
         productsTab.click();
         return new ProductsPage(driver);
     }
 
-    public String getLoggedInUsernameText() {
+    public String getUserName () {
         if (loggedInText.isDisplayed()) {
             return loggedInText.getText().trim();
         } else {

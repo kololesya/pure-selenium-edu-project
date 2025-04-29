@@ -80,13 +80,12 @@ public class SignupPage extends AbstractPage {
         return isElementDisplayed(accountInformationTitle);
     }
 
-    public void selectMaleSex () {
+    public void maleRadioButton () {
         click(mrTitleRadio);
     }
 
     public void enterPassword(String password) {
-        clearField(passwordField);
-        sendKeysTo(passwordField, password);
+        sendKeys(passwordField, password);
     }
 
     public void selectBirthDay(String day) {
@@ -110,28 +109,23 @@ public class SignupPage extends AbstractPage {
     }
 
     public void enterFirstName(String firstName) {
-        clearField(firstNameField);
-        sendKeysTo(firstNameField, firstName);
+        sendKeys(firstNameField, firstName);
     }
 
     public void enterLastName(String lastName) {
-        clearField(lastNameFiled);
-        sendKeysTo(lastNameFiled, lastName);
+        sendKeys(lastNameFiled, lastName);
     }
 
     public void enterCompany(String company) {
-        clearField(companyField);
-        sendKeysTo(companyField, company);
+        sendKeys(companyField, company);
     }
 
     public void enterAddress1(String address1) {
-        clearField(address1Field);
-        sendKeysTo(address1Field, address1);
+        sendKeys(address1Field, address1);
     }
 
     public void enterAddress2(String address2) {
-        clearField(address2Field);
-        sendKeysTo(address2Field, address2);
+        sendKeys(address2Field, address2);
     }
 
     public void selectCountry(String country) {
@@ -139,27 +133,23 @@ public class SignupPage extends AbstractPage {
     }
 
     public void enterState(String state) {
-        clearField(stateField);
-        sendKeysTo(stateField, state);
+        sendKeys(stateField, state);
     }
 
     public void enterCity(String city) {
-        clearField(cityField);
-        sendKeysTo(cityField, city);
+        sendKeys(cityField, city);
     }
 
     public void enterZipCode(String zip) {
-        clearField(zipcodeField);
-        sendKeysTo(zipcodeField, zip);
+        sendKeys(zipcodeField, zip);
     }
 
     public void enterMobileNumber(String mobile) {
-        clearField(mobileNumberField);
-        sendKeysTo(mobileNumberField, mobile);
+        sendKeys(mobileNumberField, mobile);
     }
 
     public void completeSignUpForm(User user) {
-        selectMaleSex();
+        maleRadioButton();
         enterPassword(user.getPassword());
         selectBirthDay(user.getBirthDay());
         selectBirthMonth(user.getBirthMonth());

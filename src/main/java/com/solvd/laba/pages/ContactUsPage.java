@@ -53,11 +53,11 @@ public class ContactUsPage extends AbstractPage {
             throw new RuntimeException("Upload file not found at path: " + form.getFilePath());
         }
 
-        sendKeysTo(nameField, form.getName());
-        sendKeysTo(emailField, form.getEmail());
-        sendKeysTo(subjectField, form.getSubject());
-        sendKeysTo(messageField, form.getMessage());
-        sendKeysTo(uploadFile, form.getFilePath());
+        sendKeys(nameField, form.getName());
+        sendKeys(emailField, form.getEmail());
+        sendKeys(subjectField, form.getSubject());
+        sendKeys(messageField, form.getMessage());
+        sendKeys(uploadFile, form.getFilePath());
     }
 
     public void submitForm() {

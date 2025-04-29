@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.solvd.laba.config.EnvironmentConfig;
-import com.solvd.laba.components.HeaderComponent;
 
 public abstract class AbstractPage {
 
@@ -57,7 +56,7 @@ public abstract class AbstractPage {
         logger.info("Cleared text in element: {}", element);
     }
 
-    protected void sendKeysTo(WebElement element, String text) {
+    protected void sendKeys (WebElement element, String text) {
         logger.info("Typing '{}' into element: {}", text, element);
         element.sendKeys(text);
     }
