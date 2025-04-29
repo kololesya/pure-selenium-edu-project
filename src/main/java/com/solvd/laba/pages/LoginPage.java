@@ -36,16 +36,9 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//h2[contains(text(),'Login to your account')]")
     private WebElement loginTitle;
 
-    private HeaderComponent headerComponent;
-
     public LoginPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
-        headerComponent = new HeaderComponent(driver);
-    }
-
-    public HeaderComponent getHeaderMenuComponent() {
-        return headerComponent;
     }
 
     @Override

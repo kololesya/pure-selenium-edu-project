@@ -5,23 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.solvd.laba.components.HeaderComponent;
-
 public class HomePage extends AbstractPage {
 
     @FindBy(xpath = "//h2[contains(text(), 'Full-Fledged practice website')]")
     private WebElement homePageHeading;
 
-    private HeaderComponent headerComponent;
-
     public HomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
-        headerComponent = new HeaderComponent(driver);
-    }
-
-    public HeaderComponent getHeaderMenuComponent() {
-        return headerComponent;
     }
 
     @Override

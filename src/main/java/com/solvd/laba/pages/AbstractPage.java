@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.solvd.laba.components.HeaderComponent;
 import com.solvd.laba.config.EnvironmentConfig;
 
 public abstract class AbstractPage {
@@ -16,6 +17,8 @@ public abstract class AbstractPage {
     protected WebDriverWait wait;
 
     protected final Logger logger = LoggerFactory.getLogger(getClass());
+
+    protected HeaderComponent header;
 
     private static final EnvironmentConfig ENVIRONMENT_CONFIG = new EnvironmentConfig();
 
@@ -33,6 +36,11 @@ public abstract class AbstractPage {
     public AbstractPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_TIMEOUT));
+        this.header = new HeaderComponent(driver);
+    }
+
+    public HeaderComponent getHeaderMenuComponent() {
+        return header;
     }
 
     public void open(String url) {
