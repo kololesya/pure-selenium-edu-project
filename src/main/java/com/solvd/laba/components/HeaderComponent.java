@@ -4,27 +4,32 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.solvd.laba.pages.HomePage;
-import com.solvd.laba.pages.LoginPage;
+import com.solvd.laba.pages.*;
 
 public class HeaderComponent {
     private WebDriver driver;
+    private static final Logger logger = LoggerFactory.getLogger(HeaderComponent.class);
 
     @FindBy(css = "a[href='/login']")
-    private WebElement signupLoginBtn;
+    private WebElement signupLoginButton;
 
     @FindBy(css = "a[href='/logout']")
-    private WebElement logoutBtn;
+    private WebElement logoutButton;
 
-    @FindBy(css = "a[href='/']")
-    private WebElement homeBtn;
+    @FindBy(xpath = "//a[@href='/contact_us']")
+    private WebElement contactUsButton;
+
+    @FindBy(xpath = "//a[contains(@class, 'btn') and contains(@class, 'btn-success') and text()='Home']")
+    private WebElement homeButton;
 
     @FindBy(xpath = "//a[contains(text(),'Logged in as')]")
     private WebElement loggedInText;
 
-    @FindBy(xpath = "//*[@id='header']//a[@style='color: orange;']")
-    private WebElement activeTab;
+    @FindBy(xpath = "//a[@href='/products']")
+    private WebElement productsTab;
 
     public HeaderComponent(WebDriver driver) {
         this.driver = driver;
@@ -32,25 +37,42 @@ public class HeaderComponent {
     }
 
     public HomePage clickHome() {
-        homeBtn.click();
+        logger.info("Clicking Home button.");
+        homeButton.click();
         return new HomePage(driver);
     }
 
-    public LoginPage clickSignupLogin() {
-        signupLoginBtn.click();
+    public LoginPage clickSignupLoginButton() {
+        logger.info("Clicking Signup/Login button.");
+        signupLoginButton.click();
         return new LoginPage(driver);
     }
 
     public LoginPage clickLogout() {
-        logoutBtn.click();
+        logger.info("Clicking Logout button.");
+        logoutButton.click();
         return new LoginPage(driver);
     }
 
-    public boolean isUserLoggedIn(String username) {
-        return loggedInText.isDisplayed() && loggedInText.getText().contains(username);
+    public ContactUsPage clickContactUs() {
+        logger.info("Navigate to Contact Us Page");
+        contactUsButton.click();
+        return new ContactUsPage(driver);
     }
 
-    public String getActiveTabText() {
-        return activeTab.getText().trim();
+    public ProductsPage clickProducts() {
+        logger.info("Navigate to Products Page");
+        productsTab.click();
+        return new ProductsPage(driver);
+    }
+
+    public String getUserName () {
+        if (loggedInText.isDisplayed()) {
+            String username = loggedInText.getText().trim();
+            logger.info("Logged in user: {}", username);
+            return username;
+        } else {
+            throw new IllegalStateException("Logged in text is not visible on the page.");
+        }
     }
 }

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d44dbb9b-46c6-4b85-9638-e3dab092a09c" name="Changes" comment="change method for checking if the isMessageTextCorrect">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ProductsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ProductsPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AbstractPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AccountCreatedPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AccountCreatedPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ContactUsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ContactUsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/SignupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/SignupPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ContactUsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ContactUsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LoginUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LoginUserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LogoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LogoutTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/UserRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/UserRegistrationTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2vnzIZft3JtQAY9koGe9iEqEPWp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "login-tests",
+    "onboarding.tips.debug.path": "D:/projects/PureSeleniumEduProject/src/main/java/com/Main.java",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.solvd.laba" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.UserRegistrationTest.testUserRegistrationWithAlreadyExistEmail">
+    <configuration name="ContactUsTest.testContactWithUs" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="PureSeleniumEduProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.laba.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solvd.laba" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.ContactUsTest" />
+      <option name="METHOD_NAME" value="testContactWithUs" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginUserTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="PureSeleniumEduProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.laba.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solvd.laba" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LoginUserTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginUserTest.testLoginWithCorrectUserCredentials" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="PureSeleniumEduProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.laba.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solvd.laba" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LoginUserTest" />
+      <option name="METHOD_NAME" value="testLoginWithCorrectUserCredentials" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginUserTest.testLoginWithIncorrectUserCredentials" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="PureSeleniumEduProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.laba.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solvd.laba" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LoginUserTest" />
+      <option name="METHOD_NAME" value="testLoginWithIncorrectUserCredentials" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRegistrationTest.testUserRegistrationWithAlreadyExistEmail" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="PureSeleniumEduProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.laba.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solvd.laba" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.UserRegistrationTest" />
+      <option name="METHOD_NAME" value="testUserRegistrationWithAlreadyExistEmail" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.UserRegistrationTest.testUserRegistrationWithAlreadyExistEmail" />
+        <item itemvalue="TestNG.LoginUserTest.testLoginWithIncorrectUserCredentials" />
+        <item itemvalue="TestNG.LoginUserTest.testLoginWithCorrectUserCredentials" />
+        <item itemvalue="TestNG.ContactUsTest.testContactWithUs" />
+        <item itemvalue="TestNG.LoginUserTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d44dbb9b-46c6-4b85-9638-e3dab092a09c" name="Changes" comment="" />
+      <created>1744795549901</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744795549901</updated>
+    </task>
+    <task id="LOCAL-00001" summary="add UserRegistrationTest and LoginUserTest">
+      <option name="closed" value="true" />
+      <created>1744990135197</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744990135199</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add testLoginWithIncorrectCredentials, testUserRegistrationWithIncorrectEmail, testLogout">
+      <option name="closed" value="true" />
+      <created>1744991949273</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744991949275</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add ContactUsTest">
+      <option name="closed" value="true" />
+      <created>1744995567985</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744995567986</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add UserBuilde and ContactFormBuilder for filling forms on the site; refactoring code">
+      <option name="closed" value="true" />
+      <created>1745582089099</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745582089099</updated>
+    </task>
+    <task id="LOCAL-00005" summary="encrypt email and password">
+      <option name="closed" value="true" />
+      <created>1745584098582</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745584098584</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Task 2^ rename BasePage -&gt; AbstractPage; add click(), sendKeysTo(), isElementDisplayed(); refactoring isPageOpened on HomePage and LoginPage">
+      <option name="closed" value="true" />
+      <created>1745588653535</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745588653535</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactor testng.xml for parallel testing">
+      <option name="closed" value="true" />
+      <created>1745589283153</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745589283153</updated>
+    </task>
+    <task id="LOCAL-00008" summary="delete driver path from config; rename methods; add text to asserts">
+      <option name="closed" value="true" />
+      <created>1745840276116</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745840276116</updated>
+    </task>
+    <task id="LOCAL-00009" summary="change method for checking if the isMessageTextCorrect">
+      <option name="closed" value="true" />
+      <created>1745842032482</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745842032482</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add UserRegistrationTest and LoginUserTest" />
+    <MESSAGE value="add testLoginWithIncorrectCredentials, testUserRegistrationWithIncorrectEmail, testLogout" />
+    <MESSAGE value="add ContactUsTest" />
+    <MESSAGE value="add UserBuilde and ContactFormBuilder for filling forms on the site; refactoring code" />
+    <MESSAGE value="encrypt email and password" />
+    <MESSAGE value="Task 2^ rename BasePage -&gt; AbstractPage; add click(), sendKeysTo(), isElementDisplayed(); refactoring isPageOpened on HomePage and LoginPage" />
+    <MESSAGE value="refactor testng.xml for parallel testing" />
+    <MESSAGE value="delete driver path from config; rename methods; add text to asserts" />
+    <MESSAGE value="change method for checking if the isMessageTextCorrect" />
+    <option name="LAST_COMMIT_MESSAGE" value="change method for checking if the isMessageTextCorrect" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

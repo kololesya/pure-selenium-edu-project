@@ -5,18 +5,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends AbstractPage {
+public class ProductsPage extends AbstractPage {
 
-    @FindBy(xpath = "//h2[contains(text(), 'Full-Fledged practice website')]")
-    private WebElement homePageHeading;
+    @FindBy(id = "search_product")
+    private WebElement searchInput;
 
-    public HomePage(WebDriver driver) {
+    public ProductsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
     @Override
     public boolean isPageOpened () {
-        return isElementDisplayed(homePageHeading);
+        return isElementDisplayed(searchInput);
     }
 }

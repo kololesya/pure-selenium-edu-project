@@ -1,15 +1,15 @@
-package com.solvd.laba;
+package com.solvd.laba.config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class Config {
+public class TestDataReader {
     private Properties properties;
 
-    public Config() {
+    public TestDataReader () {
         properties = new Properties();
-        try (FileInputStream input = new FileInputStream("src/test/resources/config.properties")) {
+        try (FileInputStream input = new FileInputStream("src/test/resources/testdata.properties")) {
             properties.load(input);
         } catch (IOException e) {
             e.printStackTrace();
@@ -20,4 +20,3 @@ public class Config {
         return properties.getProperty(key);
     }
 }
-
