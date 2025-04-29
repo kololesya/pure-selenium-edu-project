@@ -52,6 +52,7 @@ public abstract class AbstractPage {
     protected void waitForVisibility(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     protected void click(WebElement element) {
         waitForVisibility(element);
         logger.info("Clicking on element: {}", element);
