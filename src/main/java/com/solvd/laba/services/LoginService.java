@@ -7,12 +7,12 @@ import com.solvd.laba.models.User;
 import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.pages.LoginPage;
 
-public class UserService {
+public class LoginService {
 
     private final WebDriver driver;
     private final EnvironmentConfig environmentConfig;
 
-    public UserService(WebDriver driver) {
+    public LoginService (WebDriver driver) {
         this.driver = driver;
         this.environmentConfig = new EnvironmentConfig();
     }
@@ -20,10 +20,8 @@ public class UserService {
     public HomePage login(User user) {
         HomePage homePage = new HomePage(driver);
         homePage.open(environmentConfig.getProperty("url"));
-
         LoginPage loginPage = homePage.getHeaderMenuComponent().clickSignupLoginButton();
         loginPage.logIn(user.getEmail(), user.getPassword());
-
         return new HomePage(driver);
     }
 }

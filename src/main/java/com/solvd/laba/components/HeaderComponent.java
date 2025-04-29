@@ -4,14 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.solvd.laba.pages.HomePage;
-import com.solvd.laba.pages.LoginPage;
-import com.solvd.laba.pages.ContactUsPage;
-import com.solvd.laba.pages.ProductsPage;
+import com.solvd.laba.pages.*;
 
 public class HeaderComponent {
     private WebDriver driver;
+    private static final Logger logger = LoggerFactory.getLogger(HeaderComponent.class);
 
     @FindBy(css = "a[href='/login']")
     private WebElement signupLoginButton;
@@ -37,33 +37,40 @@ public class HeaderComponent {
     }
 
     public HomePage clickHome() {
+        logger.info("Clicking Home button.");
         homeButton.click();
         return new HomePage(driver);
     }
 
     public LoginPage clickSignupLoginButton() {
+        logger.info("Clicking Signup/Login button.");
         signupLoginButton.click();
         return new LoginPage(driver);
     }
 
     public LoginPage clickLogout() {
+        logger.info("Clicking Logout button.");
         logoutButton.click();
         return new LoginPage(driver);
     }
 
     public ContactUsPage clickContactUs() {
+        logger.info("Navigate to Contact Us Page");
         contactUsButton.click();
         return new ContactUsPage(driver);
     }
 
     public ProductsPage clickProducts() {
+        logger.info("Navigate to Products Page");
         productsTab.click();
         return new ProductsPage(driver);
     }
 
     public String getUserName () {
         if (loggedInText.isDisplayed()) {
-            return loggedInText.getText().trim();
+            String username = loggedInText.getText().trim();
+            logger.info("Logged in user: {}", username);
+            return username;
         } else {
             throw new IllegalStateException("Logged in text is not visible on the page.");
         }

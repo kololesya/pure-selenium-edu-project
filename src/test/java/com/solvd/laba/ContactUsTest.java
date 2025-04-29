@@ -7,24 +7,22 @@ import com.solvd.laba.models.ContactForm;
 import com.solvd.laba.pages.ContactUsPage;
 import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.utils.ContactFormFactory;
+import com.solvd.laba.projectConstants.SuccessMessages;
 
 public class ContactUsTest extends BaseTest {
 
     @Test
     public void testContactWithUs() throws Exception {
         HomePage homePage = openHomePage();
-        logger.info("Navigate to Contact Us Page");
         ContactUsPage contactUsPage = homePage.getHeaderMenuComponent().clickContactUs();
         Assert.assertTrue(contactUsPage.isPageOpened(), "Contact Us page should be opened");
-        logger.info("Build Contact Form and fill it");
         ContactForm contactForm = ContactFormFactory.buildContactForm();
         contactUsPage.fillContactForm(contactForm);
-        logger.info("Submit the form");
         contactUsPage.submitForm();
-        logger.info("Verify success message");
-        Assert.assertTrue(contactUsPage.isMessageTextCorrect("Success! Your details have been submitted successfully."),
-                "Success message should be displayed");
-        logger.info("Return to Home Page");
+        Assert.assertTrue(
+                contactUsPage.isMessageTextCorrect(SuccessMessages.CONTACT_FORM_SUBMITTED.getText()),
+                "Success message should be displayed"
+        );
         homePage = contactUsPage.clickHomeButton();
         Assert.assertTrue(homePage.isPageOpened(), "Home page should be opened after returning from Contact Us");
     }

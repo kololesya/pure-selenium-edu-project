@@ -3,8 +3,7 @@ package com.solvd.laba;
 import com.solvd.laba.config.EnvironmentConfig;
 import com.solvd.laba.models.User;
 import com.solvd.laba.pages.HomePage;
-import com.solvd.laba.pages.LoginPage;
-import com.solvd.laba.services.UserService;
+import com.solvd.laba.services.LoginService;
 import com.solvd.laba.utils.UserFactory;
 import com.solvd.laba.utils.WebDriverFactory;
 import org.apache.logging.log4j.LogManager;
@@ -40,9 +39,9 @@ public abstract class BaseTest {
         return homePage;
     }
 
-    public HomePage loginOnSite() throws Exception {
+    public HomePage login() throws Exception {
         User loginUser = UserFactory.buildUserForLogin();
         logger.info("Logging in with user: {}", loginUser.getEmail());
-        return new UserService(driver).login(loginUser);
+        return new LoginService(driver).login(loginUser);
     }
 }

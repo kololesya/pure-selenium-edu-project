@@ -26,7 +26,7 @@ public class AccountCreatedPage extends AbstractPage {
     }
 
     public HomePage clickContinue() {
-        logger.info("Clicking on 'Continue' button");
+        logger.info("Clicking on 'Continue' button and redirect to Home Page");
         click(continueButton);
         return new HomePage(driver);
     }

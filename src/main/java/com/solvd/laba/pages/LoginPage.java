@@ -49,10 +49,12 @@ public class LoginPage extends AbstractPage {
 
     @Override
     public boolean isPageOpened () {
+        logger.info("Verifying redirection to Login page");
         return isElementDisplayed(loginTitle);
     }
 
     public SignupPage signUp(String name, String email) {
+        logger.info("Enter user name and email");
         sendKeys(nameField, name);
         sendKeys(signupEmailField, email);
         click(signupButton);
@@ -60,6 +62,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public HomePage logIn (String email, String password) {
+        logger.info("Login with valid credentials");
         sendKeys(loginEmailField, email);
         sendKeys(passwordField, password);
         click(loginButton);
@@ -67,6 +70,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public boolean isErrorMessageDisplayed (String messageText) {
+        logger.info("Verify error message for existing email");
         String locator = String.format(errorMessage, messageText);
         try {
             WebElement errorElement = driver.findElement(By.xpath(locator));

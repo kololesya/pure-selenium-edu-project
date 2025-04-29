@@ -47,12 +47,10 @@ public class ContactUsPage extends AbstractPage {
 
     public void fillContactForm(ContactForm form) {
         logger.info("Filling Contact Us form");
-
         File file = new File(form.getFilePath());
         if (!file.exists()) {
             throw new RuntimeException("Upload file not found at path: " + form.getFilePath());
         }
-
         sendKeys(nameField, form.getName());
         sendKeys(emailField, form.getEmail());
         sendKeys(subjectField, form.getSubject());
@@ -61,18 +59,19 @@ public class ContactUsPage extends AbstractPage {
     }
 
     public void submitForm() {
-        logger.info("Submitting contact form");
+        logger.info("Submitting the contact form");
         click(submitButton);
         driver.switchTo().alert().accept();
         logger.info("Alert accepted after form submission");
     }
 
     public boolean isMessageTextCorrect(String expectedMessage) {
+        logger.info("Verify success message");
         return successMessage.getText().contains(expectedMessage);
     }
 
     public HomePage clickHomeButton() {
-        logger.info("Clicking on 'Home' button from Contact Us page");
+        logger.info("Return to Home Page");
         click(homeButton);
         return new HomePage(driver);
     }

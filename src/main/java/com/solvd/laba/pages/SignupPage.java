@@ -149,6 +149,7 @@ public class SignupPage extends AbstractPage {
     }
 
     public void completeSignUpForm(User user) {
+        logger.info("Fill in signup form");
         maleRadioButton();
         enterPassword(user.getPassword());
         selectBirthDay(user.getBirthDay());
@@ -169,6 +170,7 @@ public class SignupPage extends AbstractPage {
     }
 
     public AccountCreatedPage submitRegistrationForm() {
+        logger.info("Submit registration");
         click(createAccountButton);
         return new AccountCreatedPage(driver);
     }
