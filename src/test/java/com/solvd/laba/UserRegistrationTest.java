@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import com.solvd.laba.models.User;
 import com.solvd.laba.pages.*;
+import com.solvd.laba.projectConstants.ErrorMessages;
 import com.solvd.laba.utils.UserFactory;
 
 public class UserRegistrationTest extends BaseTest {
@@ -14,12 +15,12 @@ public class UserRegistrationTest extends BaseTest {
     public Object[][] registrationData() throws Exception {
         return new Object[][]{
                 { UserFactory.buildUserForRegistration(), true, null },
-                { UserFactory.buildUserForLogin(), false, "Email Address already exist!" }
+                { UserFactory.buildUserForLogin(), false, ErrorMessages.EMAIL_ALREADY_EXISTS }
         };
     }
 
     @Test(dataProvider = "registrationData")
-    public void testUserRegistration(User user, boolean isNewUser, String expectedErrorMessage) {
+    public void testUserRegistration(User user, boolean isNewUser, ErrorMessages expectedErrorMessage) {
         HomePage homePage = openHomePage();
         logger.info("Go to Login Page");
         LoginPage loginPage = homePage.getHeaderMenuComponent().clickSignupLoginButton();
@@ -41,7 +42,7 @@ public class UserRegistrationTest extends BaseTest {
             Assert.assertTrue(homePage.isPageOpened(), "Home page should be visible after registration");
         } else {
             logger.info("Verify error message for existing email");
-            Assert.assertTrue(loginPage.isErrorMessageDisplayed(expectedErrorMessage),
+            Assert.assertTrue(loginPage.isErrorMessageDisplayed(expectedErrorMessage.getText()),
                     "The error message should be displayed for invalid registration.");
         }
     }

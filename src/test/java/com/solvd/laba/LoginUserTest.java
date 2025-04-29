@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import com.solvd.laba.models.User;
 import com.solvd.laba.pages.HomePage;
 import com.solvd.laba.pages.LoginPage;
+import com.solvd.laba.projectConstants.ErrorMessages;
 import com.solvd.laba.utils.UserFactory;
 
 public class LoginUserTest extends BaseTest {
@@ -15,12 +16,12 @@ public class LoginUserTest extends BaseTest {
     public Object[][] loginData() throws Exception {
         return new Object[][] {
                 { UserFactory.buildUserForLogin(), true, null },
-                { UserFactory.buildUserForRegistration(), false, "Your email or password is incorrect!" }
+                { UserFactory.buildUserForRegistration(), false, ErrorMessages.INVALID_LOGIN }
         };
     }
 
     @Test(dataProvider = "loginData")
-    public void testLogin(User user, boolean isSuccessfulLogin, String expectedErrorMessage) {
+    public void testLogin(User user, boolean isSuccessfulLogin, ErrorMessages expectedErrorMessage) {
         HomePage homePage = openHomePage();
         logger.info("Open Login Page");
         LoginPage loginPage = homePage.getHeaderMenuComponent().clickSignupLoginButton();
@@ -38,7 +39,7 @@ public class LoginUserTest extends BaseTest {
             Assert.assertTrue(homePage.isPageOpened(), "Home page should be opened after login");
         } else {
             logger.info("Verify login was not successful");
-            Assert.assertTrue(loginPage.isErrorMessageDisplayed(expectedErrorMessage),
+            Assert.assertTrue(loginPage.isErrorMessageDisplayed(expectedErrorMessage.getText()),
                     "The error message should be displayed for invalid login.");
         }
     }
