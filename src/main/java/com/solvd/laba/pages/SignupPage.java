@@ -80,11 +80,11 @@ public class SignupPage extends AbstractPage {
         return isElementDisplayed(accountInformationTitle);
     }
 
-    public void maleRadioButton () {
+    public void selectMaleTitle() {
         click(mrTitleRadio);
     }
 
-    public void enterPassword(String password) {
+    public void fillPassword(String password) {
         sendKeys(passwordField, password);
     }
 
@@ -108,23 +108,23 @@ public class SignupPage extends AbstractPage {
         click(offersCheckbox);
     }
 
-    public void enterFirstName(String firstName) {
+    public void fillFirstName(String firstName) {
         sendKeys(firstNameField, firstName);
     }
 
-    public void enterLastName(String lastName) {
+    public void fillLastName(String lastName) {
         sendKeys(lastNameFiled, lastName);
     }
 
-    public void enterCompany(String company) {
+    public void fillCompany(String company) {
         sendKeys(companyField, company);
     }
 
-    public void enterAddress1(String address1) {
+    public void fillAddress1(String address1) {
         sendKeys(address1Field, address1);
     }
 
-    public void enterAddress2(String address2) {
+    public void fillAddress2(String address2) {
         sendKeys(address2Field, address2);
     }
 
@@ -132,41 +132,41 @@ public class SignupPage extends AbstractPage {
         new Select(countryDropdown).selectByVisibleText(country);
     }
 
-    public void enterState(String state) {
+    public void fillState(String state) {
         sendKeys(stateField, state);
     }
 
-    public void enterCity(String city) {
+    public void fillCity(String city) {
         sendKeys(cityField, city);
     }
 
-    public void enterZipCode(String zip) {
+    public void fillZipCode(String zip) {
         sendKeys(zipcodeField, zip);
     }
 
-    public void enterMobileNumber(String mobile) {
+    public void fillMobileNumber(String mobile) {
         sendKeys(mobileNumberField, mobile);
     }
 
     public void completeSignUpForm(User user) {
         logger.info("Fill in signup form");
-        maleRadioButton();
-        enterPassword(user.getPassword());
+        selectMaleTitle();
+        fillPassword(user.getPassword());
         selectBirthDay(user.getBirthDay());
         selectBirthMonth(user.getBirthMonth());
         selectBirthYear(user.getBirthYear());
         subscribeToNewsletter();
         subscribeToOffers();
-        enterFirstName(user.getName());
-        enterLastName(user.getLastName());
-        enterCompany(user.getCompany());
-        enterAddress1(user.getAddress1());
-        enterAddress2(user.getAddress2());
+        fillFirstName(user.getName());
+        fillLastName(user.getLastName());
+        fillCompany(user.getCompany());
+        fillAddress1(user.getAddress1());
+        fillAddress2(user.getAddress2());
         selectCountry(user.getCountry());
-        enterState(user.getState());
-        enterCity(user.getCity());
-        enterZipCode(user.getZipcode());
-        enterMobileNumber(user.getMobilePhone());
+        fillState(user.getState());
+        fillCity(user.getCity());
+        fillZipCode(user.getZipcode());
+        fillMobileNumber(user.getMobilePhone());
     }
 
     public AccountCreatedPage submitRegistrationForm() {
