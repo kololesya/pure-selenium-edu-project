@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44dbb9b-46c6-4b85-9638-e3dab092a09c" name="Changes" comment="change method for checking if the isMessageTextCorrect">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ProductsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ProductsPageTest.java" afterDir="false" />
+    <list default="true" id="d44dbb9b-46c6-4b85-9638-e3dab092a09c" name="Changes" comment="remove Grid Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AbstractPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AccountCreatedPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/AccountCreatedPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ContactUsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/ContactUsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/SignupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/SignupPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ContactUsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/ContactUsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LoginUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LoginUserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LogoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/LogoutTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/solvd/laba/UserRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/solvd/laba/UserRegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/utils/WebDriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/utils/WebDriverFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +16,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -41,22 +30,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "login-tests",
-    "onboarding.tips.debug.path": "D:/projects/PureSeleniumEduProject/src/main/java/com/Main.java",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;task-four&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/projects/PureSeleniumEduProject/src/main/java/com/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.solvd.laba" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.UserRegistrationTest.testUserRegistrationWithAlreadyExistEmail">
-    <configuration name="ContactUsTest.testContactWithUs" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.LogoutTest.testLogout">
+    <configuration name="GridTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.GridTest" />
+      <module name="PureSeleniumEduProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.laba.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogoutTest.testLogout" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="PureSeleniumEduProject" />
       <extension name="coverage">
         <pattern>
@@ -65,8 +67,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.solvd.laba" />
-      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.ContactUsTest" />
-      <option name="METHOD_NAME" value="testContactWithUs" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LogoutTest" />
+      <option name="METHOD_NAME" value="testLogout" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -74,7 +76,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginUserTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductsPageTest.testAddProductToCartWithoutSearch" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="PureSeleniumEduProject" />
       <extension name="coverage">
         <pattern>
@@ -83,25 +85,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.solvd.laba" />
-      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LoginUserTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginUserTest.testLoginWithCorrectUserCredentials" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="PureSeleniumEduProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.solvd.laba.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.solvd.laba" />
-      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LoginUserTest" />
-      <option name="METHOD_NAME" value="testLoginWithCorrectUserCredentials" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.ProductsPageTest" />
+      <option name="METHOD_NAME" value="testAddProductToCartWithoutSearch" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -109,7 +94,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginUserTest.testLoginWithIncorrectUserCredentials" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductsPageTest.testProductComponentsDisplayCorrectly" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="PureSeleniumEduProject" />
       <extension name="coverage">
         <pattern>
@@ -118,8 +103,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.solvd.laba" />
-      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.LoginUserTest" />
-      <option name="METHOD_NAME" value="testLoginWithIncorrectUserCredentials" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.ProductsPageTest" />
+      <option name="METHOD_NAME" value="testProductComponentsDisplayCorrectly" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -127,7 +112,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRegistrationTest.testUserRegistrationWithAlreadyExistEmail" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductsPageTest.testSearchProductByName" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="PureSeleniumEduProject" />
       <extension name="coverage">
         <pattern>
@@ -136,8 +121,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.solvd.laba" />
-      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.UserRegistrationTest" />
-      <option name="METHOD_NAME" value="testUserRegistrationWithAlreadyExistEmail" />
+      <option name="MAIN_CLASS_NAME" value="com.solvd.laba.ProductsPageTest" />
+      <option name="METHOD_NAME" value="testSearchProductByName" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -147,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.UserRegistrationTest.testUserRegistrationWithAlreadyExistEmail" />
-        <item itemvalue="TestNG.LoginUserTest.testLoginWithIncorrectUserCredentials" />
-        <item itemvalue="TestNG.LoginUserTest.testLoginWithCorrectUserCredentials" />
-        <item itemvalue="TestNG.ContactUsTest.testContactWithUs" />
-        <item itemvalue="TestNG.LoginUserTest" />
+        <item itemvalue="TestNG.LogoutTest.testLogout" />
+        <item itemvalue="Application.GridTest" />
+        <item itemvalue="TestNG.ProductsPageTest.testAddProductToCartWithoutSearch" />
+        <item itemvalue="TestNG.ProductsPageTest.testSearchProductByName" />
+        <item itemvalue="TestNG.ProductsPageTest.testProductComponentsDisplayCorrectly" />
       </list>
     </recent_temporary>
   </component>
@@ -236,8 +221,131 @@
       <option name="project" value="LOCAL" />
       <updated>1745842032482</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactoring code">
+      <option name="closed" value="true" />
+      <created>1745850106486</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1745850106486</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add ProductPage and first test openin ProductPage">
+      <option name="closed" value="true" />
+      <created>1745850142765</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1745850142765</updated>
+    </task>
+    <task id="LOCAL-00012" summary="refactoring method for user registration,rename Congig -&gt; EnvironmentConfig, TestDataConfig.java - TestDataReader">
+      <option name="closed" value="true" />
+      <created>1745858507958</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745858507958</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add HeaderComponent on HomePage and LoginPage; use for LoginUserTest DataProvider">
+      <option name="closed" value="true" />
+      <created>1745864147544</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745864147544</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add DataProvider for UserRegistrationTest">
+      <option name="closed" value="true" />
+      <created>1745916261165</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745916261165</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add enum ErrorMessages for registration and login">
+      <option name="closed" value="true" />
+      <created>1745916777270</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1745916777270</updated>
+    </task>
+    <task id="LOCAL-00016" summary="rename sendKeysTo -&gt; sendKeys; refactoring SingupPage">
+      <option name="closed" value="true" />
+      <created>1745921360774</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1745921360774</updated>
+    </task>
+    <task id="LOCAL-00017" summary="remove logger from the tests, add it to the methods; rename UserService -&gt; LoginService; create enum for SuccessMessages">
+      <option name="closed" value="true" />
+      <created>1745926366451</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1745926366451</updated>
+    </task>
+    <task id="LOCAL-00018" summary="refactoring testLogin() and testUserRegistration() methods">
+      <option name="closed" value="true" />
+      <created>1745928266499</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1745928266499</updated>
+    </task>
+    <task id="LOCAL-00019" summary="move HeaderComponent back to AbstractPage">
+      <option name="closed" value="true" />
+      <created>1745929391174</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1745929391176</updated>
+    </task>
+    <task id="LOCAL-00020" summary="SingupPage: rename enterPassword, so on -&gt; fillPassword, so on">
+      <option name="closed" value="true" />
+      <created>1745930272324</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1745930272325</updated>
+    </task>
+    <task id="LOCAL-00021" summary="create CartItemComponent, CartPage, ProductItemComponent, Products, ProductsPage, SuccessPopupComponent and create 3 tests">
+      <option name="closed" value="true" />
+      <created>1745961809376</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1745961809376</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add parallel Grid execution for Chrome and Firefox via testng.xml and parameterized WebDriverFactory">
+      <option name="closed" value="true" />
+      <created>1746003629175</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1746003629175</updated>
+    </task>
+    <task id="LOCAL-00023" summary="remove Grid Test">
+      <option name="closed" value="true" />
+      <created>1746186624474</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1746186624474</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add UserRegistrationTest and LoginUserTest" />
@@ -249,14 +357,28 @@
     <MESSAGE value="refactor testng.xml for parallel testing" />
     <MESSAGE value="delete driver path from config; rename methods; add text to asserts" />
     <MESSAGE value="change method for checking if the isMessageTextCorrect" />
-    <option name="LAST_COMMIT_MESSAGE" value="change method for checking if the isMessageTextCorrect" />
+    <MESSAGE value="refactoring code" />
+    <MESSAGE value="add ProductPage and first test openin ProductPage" />
+    <MESSAGE value="refactoring method for user registration,rename Congig -&gt; EnvironmentConfig, TestDataConfig.java - TestDataReader" />
+    <MESSAGE value="add HeaderComponent on HomePage and LoginPage; use for LoginUserTest DataProvider" />
+    <MESSAGE value="add DataProvider for UserRegistrationTest" />
+    <MESSAGE value="add enum ErrorMessages for registration and login" />
+    <MESSAGE value="rename sendKeysTo -&gt; sendKeys; refactoring SingupPage" />
+    <MESSAGE value="remove logger from the tests, add it to the methods; rename UserService -&gt; LoginService; create enum for SuccessMessages" />
+    <MESSAGE value="refactoring testLogin() and testUserRegistration() methods" />
+    <MESSAGE value="move HeaderComponent back to AbstractPage" />
+    <MESSAGE value="SingupPage: rename enterPassword, so on -&gt; fillPassword, so on" />
+    <MESSAGE value="create CartItemComponent, CartPage, ProductItemComponent, Products, ProductsPage, SuccessPopupComponent and create 3 tests" />
+    <MESSAGE value="Add parallel Grid execution for Chrome and Firefox via testng.xml and parameterized WebDriverFactory" />
+    <MESSAGE value="remove Grid Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove Grid Test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/solvd/laba/pages/LoginPage.java</url>
-          <line>50</line>
+          <line>54</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
