@@ -1,11 +1,5 @@
 package com.solvd.laba;
 
-import com.solvd.laba.config.EnvironmentConfig;
-import com.solvd.laba.models.User;
-import com.solvd.laba.pages.HomePage;
-import com.solvd.laba.services.LoginService;
-import com.solvd.laba.utils.UserFactory;
-import com.solvd.laba.utils.WebDriverFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +7,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+
+import com.solvd.laba.config.EnvironmentConfig;
+import com.solvd.laba.models.User;
+import com.solvd.laba.pages.HomePage;
+import com.solvd.laba.services.LoginService;
+import com.solvd.laba.utils.UserFactory;
+import com.solvd.laba.utils.WebDriverFactory;
 
 public abstract class BaseTest {
 
